@@ -91,7 +91,7 @@ export default async function BlogDetailPage({ params }: Props) {
             {/* Tags */}
             {post.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t">
-                {post.tags.map((tag) => (
+                {post.tags.map((tag: string) => (
                   <Badge key={tag} variant="outline">{tag}</Badge>
                 ))}
               </div>
