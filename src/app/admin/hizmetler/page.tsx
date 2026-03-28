@@ -1,4 +1,3 @@
-import type { Service } from "@prisma/client";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
@@ -22,7 +21,7 @@ export default async function AdminHizmetlerPage() {
         <Table>
           <TableHeader><TableRow><TableHead>Baslik</TableHead><TableHead>Slug</TableHead><TableHead>Durum</TableHead><TableHead>Sira</TableHead><TableHead className="text-right">Islemler</TableHead></TableRow></TableHeader>
           <TableBody>
-            {services.map((s: Service) => (
+            {services.map((s) => (
               <TableRow key={s.id}>
                 <TableCell className="font-medium">{s.title}</TableCell>
                 <TableCell className="text-sm text-muted-foreground">{s.slug}</TableCell>

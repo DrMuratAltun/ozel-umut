@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { TeamMember } from "@prisma/client";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -19,8 +18,7 @@ export default async function EkibimizPage() {
     orderBy: { sortOrder: "asc" },
   });
 
-  type TeamDisplay = Pick<TeamMember, "id" | "fullName" | "title" | "specialization" | "bio" | "photoUrl">;
-  const displayTeam: TeamDisplay[] = team.length > 0 ? team : [
+  const displayTeam = team.length > 0 ? team : [
     { id: "1", fullName: "Uzman Kadro", title: "Ozel Egitim Uzmani", specialization: "Otizm, Zihinsel Yetersizlik", bio: "Alaninda deneyimli uzmanlarimiz ile hizmetinizdeyiz.", photoUrl: null },
     { id: "2", fullName: "Uzman Kadro", title: "Dil ve Konusma Terapisti", specialization: "Dil Gecikmesi, Artikulasyon", bio: "Cocugunuzun iletisim becerilerini gelistirmek icin buradayiz.", photoUrl: null },
     { id: "3", fullName: "Uzman Kadro", title: "Fizyoterapist", specialization: "Motor Gelisim, Rehabilitasyon", bio: "Fiziksel gelisim ve rehabilitasyon programlari sunuyoruz.", photoUrl: null },
@@ -36,7 +34,7 @@ export default async function EkibimizPage() {
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {displayTeam.map((member: TeamDisplay) => {
+          {displayTeam.map((member) => {
             const initials = member.fullName
               .split(" ")
               .map((n: string) => n[0])

@@ -1,4 +1,3 @@
-import type { BlogPost, Profile } from "@prisma/client";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
@@ -41,7 +40,7 @@ export default async function AdminBlogPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {posts.map((post: BlogPost & { author: Profile | null }) => (
+              {posts.map((post) => (
                 <TableRow key={post.id}>
                   <TableCell className="font-medium">{post.title}</TableCell>
                   <TableCell>

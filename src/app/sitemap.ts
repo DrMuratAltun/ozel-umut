@@ -25,28 +25,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/iletisim`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
   ];
 
-  const servicePages = services.map((s: { slug: string; updatedAt: Date }) => ({
+  const servicePages = services.map((s) => ({
     url: `${SITE_URL}/hizmetlerimiz/${s.slug}`,
     lastModified: s.updatedAt,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
-  const programPages = programs.map((p: { slug: string; updatedAt: Date }) => ({
+  const programPages = programs.map((p) => ({
     url: `${SITE_URL}/programlar/${p.slug}`,
     lastModified: p.updatedAt,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
-  const blogPages = blogPosts.map((p: { slug: string; updatedAt: Date }) => ({
+  const blogPages = blogPosts.map((p) => ({
     url: `${SITE_URL}/blog/${p.slug}`,
     lastModified: p.updatedAt,
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
 
-  const projectPages = projects.map((p: { slug: string; updatedAt: Date }) => ({
+  const projectPages = projects.map((p) => ({
     url: `${SITE_URL}/projeler/${p.slug}`,
     lastModified: p.updatedAt,
     changeFrequency: "monthly" as const,

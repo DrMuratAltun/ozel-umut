@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { GalleryItem } from "@prisma/client";
 import { PageHeader } from "@/components/shared/page-header";
 import { EmptyState } from "@/components/shared/empty-state";
 import { prisma } from "@/lib/prisma";
@@ -18,7 +17,7 @@ export default async function GaleriPage() {
     orderBy: { sortOrder: "asc" },
   });
 
-  const categories = [...new Set(items.map((i: GalleryItem) => i.category).filter(Boolean))] as string[];
+  const categories = [...new Set(items.map((i) => i.category).filter(Boolean))] as string[];
 
   return (
     <>

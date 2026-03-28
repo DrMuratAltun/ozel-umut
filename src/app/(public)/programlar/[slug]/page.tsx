@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { Program } from "@prisma/client";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/shared/page-header";
@@ -101,7 +100,7 @@ export default async function ProgramDetailPage({ params }: Props) {
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Diger Programlar</h3>
             <div className="space-y-3">
-              {relatedPrograms.map((p: Program) => (
+              {relatedPrograms.map((p) => (
                 <Link key={p.slug} href={`/programlar/${p.slug}`}>
                   <Card className="hover:border-primary/20 transition-colors">
                     <CardContent className="p-4">

@@ -1,4 +1,3 @@
-import type { ContactMessage } from "@prisma/client";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Badge } from "@/components/ui/badge";
@@ -31,7 +30,7 @@ export default async function AdminMesajlarPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {messages.map((msg: ContactMessage) => (
+              {messages.map((msg) => (
                 <TableRow key={msg.id} className={msg.isRead ? "" : "bg-primary/5"}>
                   <TableCell>
                     <div>

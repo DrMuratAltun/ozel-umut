@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { Project } from "@prisma/client";
 import Link from "next/link";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent } from "@/components/ui/card";
@@ -42,7 +41,7 @@ export default async function ProjelerPage() {
           />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project: Project) => {
+            {projects.map((project) => {
               const status = STATUS_MAP[project.status] || STATUS_MAP.active;
               return (
                 <Link key={project.id} href={`/projeler/${project.slug}`}>
