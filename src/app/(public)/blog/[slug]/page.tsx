@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/shared/page-header";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { prisma } from "@/lib/prisma";
+import type { BlogPost } from "@prisma/client";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -102,7 +103,7 @@ export default async function BlogDetailPage({ params }: Props) {
           <aside>
             <h3 className="text-lg font-semibold text-foreground mb-4">Diger Yazilar</h3>
             <div className="space-y-3">
-              {relatedPosts.map((p) => (
+              {relatedPosts.map((p: BlogPost) => (
                 <Link key={p.slug} href={`/blog/${p.slug}`}>
                   <Card className="hover:border-primary/20 transition-colors">
                     <CardContent className="p-4">

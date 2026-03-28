@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Service } from "@prisma/client";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/shared/page-header";
@@ -51,7 +52,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div className="lg:col-span-2">
             <div className="prose prose-lg max-w-none text-muted-foreground">
               {service.description ? (
-                service.description.split("\n").map((paragraph, i) => (
+                service.description.split("\n").map((paragraph: string, i: number) => (
                   <p key={i}>{paragraph}</p>
                 ))
               ) : (
@@ -85,7 +86,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Diger Hizmetlerimiz</h3>
             <div className="space-y-3">
-              {relatedServices.map((s) => (
+              {relatedServices.map((s: Service) => (
                 <Link key={s.slug} href={`/hizmetlerimiz/${s.slug}`}>
                   <Card className="hover:border-primary/20 transition-colors">
                     <CardContent className="p-4">

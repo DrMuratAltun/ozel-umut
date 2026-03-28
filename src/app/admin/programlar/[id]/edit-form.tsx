@@ -31,7 +31,7 @@ export function ProgramEditForm({ program }: { program: Program }) {
         shortDescription: (fd.get("shortDescription") as string) || undefined,
         description: (fd.get("description") as string) || undefined,
         targetGroup: (fd.get("targetGroup") as string) || undefined,
-        features: featuresStr ? featuresStr.split(",").map((f) => f.trim()).filter(Boolean) : [],
+        features: featuresStr ? featuresStr.split(",").map((f: string) => f.trim()).filter(Boolean) : [],
         sortOrder: parseInt(fd.get("sortOrder") as string) || 0,
       });
       toast.success("Program guncellendi");

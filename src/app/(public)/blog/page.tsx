@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { BlogPost, Profile } from "@prisma/client";
 import Link from "next/link";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent } from "@/components/ui/card";
@@ -36,7 +37,7 @@ export default async function BlogPage() {
           />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map((post) => (
+            {posts.map((post: BlogPost & { author: Profile | null }) => (
               <Link key={post.id} href={`/blog/${post.slug}`}>
                 <Card className="group h-full flex flex-col transition-all hover:shadow-lg hover:border-primary/20">
                   {post.coverImageUrl && (

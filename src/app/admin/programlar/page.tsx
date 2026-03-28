@@ -1,3 +1,4 @@
+import type { Program } from "@prisma/client";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
@@ -21,7 +22,7 @@ export default async function AdminProgramlarPage() {
         <Table>
           <TableHeader><TableRow><TableHead>Baslik</TableHead><TableHead>Hedef Grup</TableHead><TableHead>Durum</TableHead><TableHead>Sira</TableHead><TableHead className="text-right">Islemler</TableHead></TableRow></TableHeader>
           <TableBody>
-            {programs.map((p) => (
+            {programs.map((p: Program) => (
               <TableRow key={p.id}>
                 <TableCell className="font-medium">{p.title}</TableCell>
                 <TableCell>{p.targetGroup || "-"}</TableCell>

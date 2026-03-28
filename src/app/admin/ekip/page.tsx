@@ -1,3 +1,4 @@
+import type { TeamMember } from "@prisma/client";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
@@ -34,7 +35,7 @@ export default async function AdminEkipPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {members.map((m) => (
+              {members.map((m: TeamMember) => (
                 <TableRow key={m.id}>
                   <TableCell>
                     <div className="flex items-center gap-3">

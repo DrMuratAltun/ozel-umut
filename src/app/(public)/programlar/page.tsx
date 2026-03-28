@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Program } from "@prisma/client";
 import Link from "next/link";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent } from "@/components/ui/card";
@@ -21,7 +22,8 @@ export default async function ProgramlarPage() {
   });
 
   // Fallback static data when DB is empty
-  const displayPrograms = programs.length > 0 ? programs : [
+  type ProgramDisplay = Pick<Program, "slug" | "title" | "shortDescription" | "targetGroup" | "features">;
+  const displayPrograms: ProgramDisplay[] = programs.length > 0 ? programs : [
     { slug: "zihinsel-yetersizlik-destegi", title: "Zihinsel Yetersizlik Destegi", shortDescription: "Zihinsel gelisim geriliği olan bireylere yonelik bireysel egitim programlari.", targetGroup: "3-18 Yas", features: ["Bireysel egitim", "Gunluk yasam becerileri", "Sosyal uyum"] },
     { slug: "otizm-spektrum-bozuklugu-destegi", title: "Otizm Spektrum Bozuklugu Destegi", shortDescription: "Otizm spektrum bozuklugu teshisi almis bireylere ozel yapilandirilmis egitim.", targetGroup: "2-18 Yas", features: ["ABA terapi", "Sosyal beceri", "Iletisim destegi"] },
     { slug: "ogrenme-guclugu-destegi", title: "Ogrenme Guclugu Destegi", shortDescription: "Disleksi, diskalkuli ve diger ogrenme gucluklerinde akademik destek.", targetGroup: "6-18 Yas", features: ["Okuma-yazma", "Matematik destegi", "Dikkat calismalari"] },
@@ -39,7 +41,7 @@ export default async function ProgramlarPage() {
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayPrograms.map((program) => (
+          {displayPrograms.map((program: ProgramDisplay) => (
             <Card key={program.slug} className="group h-full flex flex-col transition-all hover:shadow-lg hover:border-primary/20">
               <CardContent className="p-6 flex flex-col flex-1">
                 <h2 className="text-xl font-semibold text-foreground mb-2">{program.title}</h2>
@@ -49,7 +51,7 @@ export default async function ProgramlarPage() {
                 <p className="text-sm text-muted-foreground flex-1 mb-4">{program.shortDescription}</p>
                 {program.features && program.features.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 mb-4">
-                    {program.features.slice(0, 3).map((feature) => (
+                    {program.features.slice(0, 3).map((feature: string) => (
                       <Badge key={feature} variant="outline" className="text-xs">{feature}</Badge>
                     ))}
                   </div>

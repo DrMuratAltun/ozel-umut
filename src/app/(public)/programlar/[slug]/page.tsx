@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Program } from "@prisma/client";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/shared/page-header";
@@ -56,7 +57,7 @@ export default async function ProgramDetailPage({ params }: Props) {
 
             <div className="prose prose-lg max-w-none text-muted-foreground">
               {program.description ? (
-                program.description.split("\n").map((p, i) => <p key={i}>{p}</p>)
+                program.description.split("\n").map((p: string, i: number) => <p key={i}>{p}</p>)
               ) : (
                 <p>{program.shortDescription}</p>
               )}
@@ -66,7 +67,7 @@ export default async function ProgramDetailPage({ params }: Props) {
               <div className="mt-8">
                 <h3 className="text-lg font-semibold text-foreground mb-4">Program Ozellikleri</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {program.features.map((feature) => (
+                  {program.features.map((feature: string) => (
                     <div key={feature} className="flex items-center gap-2">
                       <CheckCircle className="h-5 w-5 text-primary shrink-0" />
                       <span className="text-muted-foreground">{feature}</span>
@@ -100,7 +101,7 @@ export default async function ProgramDetailPage({ params }: Props) {
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Diger Programlar</h3>
             <div className="space-y-3">
-              {relatedPrograms.map((p) => (
+              {relatedPrograms.map((p: Program) => (
                 <Link key={p.slug} href={`/programlar/${p.slug}`}>
                   <Card className="hover:border-primary/20 transition-colors">
                     <CardContent className="p-4">

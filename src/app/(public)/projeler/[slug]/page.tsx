@@ -54,7 +54,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
         <div className="prose prose-lg max-w-none text-muted-foreground">
           {project.description ? (
-            project.description.split("\n").map((p, i) => <p key={i}>{p}</p>)
+            project.description.split("\n").map((p: string, i: number) => <p key={i}>{p}</p>)
           ) : (
             <p>{project.shortDescription}</p>
           )}

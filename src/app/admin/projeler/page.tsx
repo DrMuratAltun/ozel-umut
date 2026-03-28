@@ -1,3 +1,4 @@
+import type { Project } from "@prisma/client";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
@@ -21,7 +22,7 @@ export default async function AdminProjelerPage() {
         <Table>
           <TableHeader><TableRow><TableHead>Baslik</TableHead><TableHead>Durum</TableHead><TableHead>Sira</TableHead><TableHead className="text-right">Islemler</TableHead></TableRow></TableHeader>
           <TableBody>
-            {projects.map((p) => (
+            {projects.map((p: Project) => (
               <TableRow key={p.id}>
                 <TableCell className="font-medium">{p.title}</TableCell>
                 <TableCell><Badge>{p.status === "active" ? "Devam Ediyor" : p.status === "completed" ? "Tamamlandi" : "Planlaniyor"}</Badge></TableCell>
