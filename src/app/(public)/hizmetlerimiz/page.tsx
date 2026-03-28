@@ -1,0 +1,90 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PageHeader } from "@/components/shared/page-header";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, BookOpen, MessageCircle, Activity, Brain, Hand, Ear } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Hizmetlerimiz",
+  description: "Umut Ozel Egitim ve Rehabilitasyon Merkezi hizmetleri: ozel egitim, dil ve konusma terapisi, fizyoterapi, psikolojik danismanlik.",
+};
+
+const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  BookOpen, MessageCircle, Activity, Brain, Hand, Ear,
+};
+
+const SERVICES = [
+  {
+    slug: "ozel-egitim",
+    title: "Ozel Egitim",
+    shortDescription: "Bireysel degerlendirme sonuclarina gore hazirlanan ozel egitim programlari ile ogrencilerimizin akademik ve sosyal gelisimlerini destekliyoruz.",
+    icon: "BookOpen",
+  },
+  {
+    slug: "dil-ve-konusma-terapisi",
+    title: "Dil ve Konusma Terapisi",
+    shortDescription: "Dil gecikmesi, artikulasyon bozukluklari, kekemelik ve iletisim gucluklerinde uzman terapistlerimizle destek sagliyoruz.",
+    icon: "MessageCircle",
+  },
+  {
+    slug: "fizyoterapi",
+    title: "Fizyoterapi",
+    shortDescription: "Motor gelisim geriligi, serebral palsi ve bedensel yetersizliklerde fiziksel rehabilitasyon programlari uyguluyoruz.",
+    icon: "Activity",
+  },
+  {
+    slug: "psikolojik-danismanlik",
+    title: "Psikolojik Danismanlik",
+    shortDescription: "Cocuk ve aile odakli psikolojik degerlendirme, terapi ve danismanlik hizmetleri sunuyoruz.",
+    icon: "Brain",
+  },
+  {
+    slug: "ergoterapi",
+    title: "Ergoterapi",
+    shortDescription: "Gunluk yasam aktiviteleri, ince motor beceriler ve duyusal butunleme terapisi ile bagimsizlik kazandiriyoruz.",
+    icon: "Hand",
+  },
+  {
+    slug: "odyoloji",
+    title: "Odyoloji",
+    shortDescription: "Isitme degerlendirmesi, isitme cihazi uygulamalari ve isitme engelli bireylere yonelik destek programlari sunuyoruz.",
+    icon: "Ear",
+  },
+];
+
+export default function HizmetlerimizPage() {
+  return (
+    <>
+      <PageHeader
+        title="Hizmetlerimiz"
+        description="Uzman kadromuzla sunduğumuz kapsamli ozel egitim ve rehabilitasyon hizmetlerimiz"
+        breadcrumbs={[{ label: "Hizmetlerimiz" }]}
+      />
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {SERVICES.map((service) => {
+            const Icon = ICON_MAP[service.icon] || BookOpen;
+            return (
+              <Card key={service.slug} className="group h-full flex flex-col transition-all hover:shadow-lg hover:border-primary/20">
+                <CardContent className="p-6 flex flex-col flex-1">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h2 className="text-xl font-semibold text-foreground mb-2">{service.title}</h2>
+                  <p className="text-sm text-muted-foreground flex-1 mb-4">{service.shortDescription}</p>
+                  <Button asChild variant="outline" size="sm" className="w-fit">
+                    <Link href={`/hizmetlerimiz/${service.slug}`}>
+                      Detayli Bilgi
+                      <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+    </>
+  );
+}

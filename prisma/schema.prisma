@@ -1,0 +1,184 @@
+generator client {
+  provider        = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Profile {
+  id        String   @id @default(uuid()) @db.Uuid
+  email     String   @unique
+  fullName  String?  @map("full_name")
+  role      String   @default("admin")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  blogPosts       BlogPost[]
+  contactMessages ContactMessage[]
+
+  @@map("profiles")
+}
+
+model Service {
+  id               String   @id @default(uuid()) @db.Uuid
+  title            String
+  slug             String   @unique
+  shortDescription String?  @map("short_description")
+  description      String?  @db.Text
+  iconName         String?  @map("icon_name")
+  imageUrl         String?  @map("image_url")
+  sortOrder        Int      @default(0) @map("sort_order")
+  isActive         Boolean  @default(true) @map("is_active")
+  metaTitle        String?  @map("meta_title")
+  metaDescription  String?  @map("meta_description")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([isActive, sortOrder])
+  @@map("services")
+}
+
+model Program {
+  id               String   @id @default(uuid()) @db.Uuid
+  title            String
+  slug             String   @unique
+  shortDescription String?  @map("short_description")
+  description      String?  @db.Text
+  targetGroup      String?  @map("target_group")
+  iconName         String?  @map("icon_name")
+  imageUrl         String?  @map("image_url")
+  features         String[] @default([])
+  sortOrder        Int      @default(0) @map("sort_order")
+  isActive         Boolean  @default(true) @map("is_active")
+  metaTitle        String?  @map("meta_title")
+  metaDescription  String?  @map("meta_description")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([isActive, sortOrder])
+  @@map("programs")
+}
+
+model TeamMember {
+  id             String   @id @default(uuid()) @db.Uuid
+  fullName       String   @map("full_name")
+  title          String
+  specialization String?
+  bio            String?  @db.Text
+  photoUrl       String?  @map("photo_url")
+  email          String?
+  sortOrder      Int      @default(0) @map("sort_order")
+  isActive       Boolean  @default(true) @map("is_active")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  @@index([isActive, sortOrder])
+  @@map("team_members")
+}
+
+model GalleryItem {
+  id           String   @id @default(uuid()) @db.Uuid
+  title        String?
+  description  String?
+  imageUrl     String   @map("image_url")
+  thumbnailUrl String?  @map("thumbnail_url")
+  category     String?
+  mediaType    String   @default("image") @map("media_type")
+  videoUrl     String?  @map("video_url")
+  sortOrder    Int      @default(0) @map("sort_order")
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@index([category])
+  @@index([isActive, sortOrder])
+  @@map("gallery_items")
+}
+
+model BlogPost {
+  id              String    @id @default(uuid()) @db.Uuid
+  title           String
+  slug            String    @unique
+  content         String    @db.Text
+  excerpt         String?
+  coverImageUrl   String?   @map("cover_image_url")
+  authorId        String?   @map("author_id") @db.Uuid
+  author          Profile?  @relation(fields: [authorId], references: [id])
+  category        String?
+  tags            String[]  @default([])
+  status          String    @default("draft")
+  publishedAt     DateTime? @map("published_at")
+  metaTitle       String?   @map("meta_title")
+  metaDescription String?   @map("meta_description")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([status, publishedAt])
+  @@index([category])
+  @@map("blog_posts")
+}
+
+model Project {
+  id               String    @id @default(uuid()) @db.Uuid
+  title            String
+  slug             String    @unique
+  description      String?   @db.Text
+  shortDescription String?   @map("short_description")
+  coverImageUrl    String?   @map("cover_image_url")
+  status           String    @default("active")
+  startDate        DateTime? @map("start_date")
+  endDate          DateTime? @map("end_date")
+  isActive         Boolean   @default(true) @map("is_active")
+  sortOrder        Int       @default(0) @map("sort_order")
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([isActive, sortOrder])
+  @@map("projects")
+}
+
+model ContactMessage {
+  id            String   @id @default(uuid()) @db.Uuid
+  name          String
+  email         String
+  phone         String?
+  subject       String?
+  message       String   @db.Text
+  isRead        Boolean  @default(false) @map("is_read")
+  readBy        String?  @map("read_by") @db.Uuid
+  readByProfile Profile? @relation(fields: [readBy], references: [id])
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@index([isRead])
+  @@index([createdAt])
+  @@map("contact_messages")
+}
+
+model Testimonial {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  relation  String?
+  content   String   @db.Text
+  rating    Int?     @default(5)
+  isActive  Boolean  @default(true) @map("is_active")
+  sortOrder Int      @default(0) @map("sort_order")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([isActive, sortOrder])
+  @@map("testimonials")
+}
+
+model SiteSetting {
+  id    String @id @default(uuid()) @db.Uuid
+  key   String @unique
+  value String @db.Text
+  group String @default("general")
+
+  @@index([key])
+  @@index([group])
+  @@map("site_settings")
+}
