@@ -3,9 +3,8 @@ import Link from "next/link";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { EmptyState } from "@/components/shared/empty-state";
 import { prisma } from "@/lib/prisma";
-import { Calendar } from "lucide-react";
+import { Calendar, PenLine, BookOpen, Sparkles } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -30,10 +29,29 @@ export default async function BlogPage() {
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
         {posts.length === 0 ? (
-          <EmptyState
-            title="Henüz yazı yok"
-            description="Blog yazıları yakındır burada yayınlanacak."
-          />
+          <div className="flex flex-col items-center justify-center py-16 text-center max-w-lg mx-auto">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-blue/10 text-brand-blue">
+                <PenLine className="h-7 w-7" />
+              </div>
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-red/10 text-brand-red">
+                <BookOpen className="h-7 w-7" />
+              </div>
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-yellow/20 text-amber-700">
+                <Sparkles className="h-7 w-7" />
+              </div>
+            </div>
+            <h3 className="text-xl font-semibold text-foreground mb-2">Yazılarımız Çok Yakında!</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Özel eğitim, aile rehberliği ve çocuk gelişimi hakkında faydalı yazılarımız
+              yakında burada yayınlanacak. Takipte kalın!
+            </p>
+            <div className="flex items-center gap-2 mt-6">
+              <div className="h-1.5 w-8 rounded-full bg-brand-blue/30" />
+              <div className="h-1.5 w-8 rounded-full bg-brand-red/30" />
+              <div className="h-1.5 w-8 rounded-full bg-brand-yellow/30" />
+            </div>
+          </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post) => (

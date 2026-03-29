@@ -4,8 +4,14 @@ import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, GraduationCap } from "lucide-react";
 import { prisma } from "@/lib/prisma";
+
+const ACCENT_COLORS = [
+  { bar: "bg-brand-blue", badge: "bg-brand-blue text-white", num: "text-brand-blue" },
+  { bar: "bg-brand-red", badge: "bg-brand-red text-white", num: "text-brand-red" },
+  { bar: "bg-brand-yellow", badge: "bg-brand-yellow text-amber-900", num: "text-amber-600" },
+];
 
 export const dynamic = "force-dynamic";
 
@@ -39,30 +45,39 @@ export default async function ProgramlarPage() {
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayPrograms.map((program) => (
-            <Card key={program.slug} className="group h-full flex flex-col transition-all hover:shadow-lg hover:border-primary/20">
-              <CardContent className="p-6 flex flex-col flex-1">
-                <h2 className="text-xl font-semibold text-foreground mb-2">{program.title}</h2>
-                {program.targetGroup && (
-                  <Badge variant="secondary" className="w-fit mb-3">{program.targetGroup}</Badge>
-                )}
-                <p className="text-sm text-muted-foreground flex-1 mb-4">{program.shortDescription}</p>
-                {program.features && program.features.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {program.features.slice(0, 3).map((feature: string) => (
-                      <Badge key={feature} variant="outline" className="text-xs">{feature}</Badge>
-                    ))}
+          {displayPrograms.map((program, index) => {
+            const colors = ACCENT_COLORS[index % ACCENT_COLORS.length];
+            const num = String(index + 1).padStart(2, "0");
+            return (
+              <Card key={program.slug} className="group h-full flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 overflow-hidden">
+                <div className={`h-1.5 ${colors.bar}`} />
+                <CardContent className="p-6 flex flex-col flex-1">
+                  <div className="flex items-start justify-between mb-3">
+                    <span className={`text-3xl font-black ${colors.num} opacity-30`}>{num}</span>
+                    <GraduationCap className="h-5 w-5 text-muted-foreground/40" />
                   </div>
-                )}
-                <Button asChild variant="outline" size="sm" className="w-fit">
-                  <Link href={`/programlar/${program.slug}`}>
-                    Detaylı Bilgi
-                    <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+                  <h2 className="text-xl font-semibold text-foreground mb-2">{program.title}</h2>
+                  {program.targetGroup && (
+                    <Badge className={`w-fit mb-3 ${colors.badge} border-0`}>{program.targetGroup}</Badge>
+                  )}
+                  <p className="text-sm text-muted-foreground flex-1 mb-4 leading-relaxed">{program.shortDescription}</p>
+                  {program.features && program.features.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {program.features.slice(0, 3).map((feature: string) => (
+                        <Badge key={feature} variant="outline" className="text-xs">{feature}</Badge>
+                      ))}
+                    </div>
+                  )}
+                  <Button asChild variant="outline" size="sm" className="w-fit group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-colors">
+                    <Link href={`/programlar/${program.slug}`}>
+                      Detaylı Bilgi
+                      <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </>

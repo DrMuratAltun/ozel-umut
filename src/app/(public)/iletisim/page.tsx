@@ -2,8 +2,15 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/shared/page-header";
 import { ContactForm } from "@/components/contact/contact-form";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { CONTACT, WORKING_HOURS } from "@/lib/constants";
+
+const ICON_COLORS = [
+  "bg-brand-blue/10 text-brand-blue",
+  "bg-brand-red/10 text-brand-red",
+  "bg-brand-yellow/20 text-amber-700",
+  "bg-brand-blue/10 text-brand-blue",
+];
 
 export const metadata: Metadata = {
   title: "İletişim",
@@ -24,9 +31,9 @@ export default function IletisimPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Info Cards */}
           <div className="space-y-4">
-            <Card>
+            <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6 flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${ICON_COLORS[0]}`}>
                   <Phone className="h-6 w-6" />
                 </div>
                 <div>
@@ -40,9 +47,9 @@ export default function IletisimPage() {
                 </div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6 flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${ICON_COLORS[1]}`}>
                   <Mail className="h-6 w-6" />
                 </div>
                 <div>
@@ -56,9 +63,9 @@ export default function IletisimPage() {
                 </div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6 flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${ICON_COLORS[2]}`}>
                   <MapPin className="h-6 w-6" />
                 </div>
                 <div>
@@ -67,9 +74,9 @@ export default function IletisimPage() {
                 </div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6 flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${ICON_COLORS[3]}`}>
                   <Clock className="h-6 w-6" />
                 </div>
                 <div>
@@ -86,6 +93,17 @@ export default function IletisimPage() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
+            {/* CTA Banner */}
+            <div className="bg-gradient-to-r from-brand-blue/10 via-brand-red/5 to-brand-yellow/10 rounded-xl p-5 mb-6 flex items-center gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-red/10 text-brand-red">
+                <MessageCircle className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="font-semibold text-foreground">Ücretsiz ön görüşme için bize yazın!</p>
+                <p className="text-sm text-muted-foreground">Uzman kadromuz sorularınızı yanıtlamak için hazır.</p>
+              </div>
+            </div>
+
             <ContactForm />
 
             {/* Map */}
