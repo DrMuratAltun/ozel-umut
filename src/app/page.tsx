@@ -2,7 +2,6 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { HeroSection } from "@/components/home/hero-section";
-import { NewsBanner } from "@/components/home/news-banner";
 import { ServicesPreview } from "@/components/home/services-preview";
 import { AboutPreview } from "@/components/home/about-preview";
 import { StatsSection } from "@/components/home/stats-section";
@@ -37,8 +36,7 @@ export default async function HomePage() {
     <>
       <Navbar />
       <main>
-        <HeroSection />
-        <NewsBanner items={newsItems} />
+        <HeroSection newsItems={newsItems} />
         <ServicesPreview />
         <AboutPreview />
         <StatsSection />
