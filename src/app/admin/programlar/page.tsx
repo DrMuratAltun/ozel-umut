@@ -19,7 +19,7 @@ export default async function AdminProgramlarPage() {
       </div>
       <Card><CardContent className="p-0">
         <Table>
-          <TableHeader><TableRow><TableHead>Baslik</TableHead><TableHead>Hedef Grup</TableHead><TableHead>Durum</TableHead><TableHead>Sira</TableHead><TableHead className="text-right">Islemler</TableHead></TableRow></TableHeader>
+          <TableHeader><TableRow><TableHead>Başlık</TableHead><TableHead>Hedef Grup</TableHead><TableHead>Durum</TableHead><TableHead>Sıra</TableHead><TableHead className="text-right">İşlemler</TableHead></TableRow></TableHeader>
           <TableBody>
             {programs.map((p) => (
               <TableRow key={p.id}>
@@ -35,7 +35,7 @@ export default async function AdminProgramlarPage() {
                 </TableCell>
               </TableRow>
             ))}
-            {programs.length === 0 && <TableRow><TableCell colSpan={5} className="text-center py-8 text-muted-foreground">Henuz program yok.</TableCell></TableRow>}
+            {programs.length === 0 && <TableRow><TableCell colSpan={5} className="text-center py-8 text-muted-foreground">Henüz program yok.</TableCell></TableRow>}
           </TableBody>
         </Table>
       </CardContent></Card>

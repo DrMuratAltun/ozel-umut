@@ -18,14 +18,14 @@ export default async function AdminDashboard() {
     ]);
 
   const stats = [
-    { label: "Blog Yazilari", value: blogCount, icon: FileText, color: "text-blue-600" },
-    { label: "Ekip Uyeleri", value: teamCount, icon: Users, color: "text-green-600" },
+    { label: "Blog Yazıları", value: blogCount, icon: FileText, color: "text-blue-600" },
+    { label: "Ekip Üyeleri", value: teamCount, icon: Users, color: "text-green-600" },
     { label: "Hizmetler", value: serviceCount, icon: Stethoscope, color: "text-teal-600" },
     { label: "Programlar", value: programCount, icon: GraduationCap, color: "text-purple-600" },
     { label: "Galeri", value: galleryCount, icon: ImageIcon, color: "text-amber-600" },
     { label: "Projeler", value: projectCount, icon: FolderKanban, color: "text-indigo-600" },
     { label: "Toplam Mesaj", value: messageCount, icon: MessageSquare, color: "text-red-600" },
-    { label: "Okunmamis Mesaj", value: unreadCount, icon: MessageSquare, color: "text-orange-600" },
+    { label: "Okunmamış Mesaj", value: unreadCount, icon: MessageSquare, color: "text-orange-600" },
   ];
 
   return (

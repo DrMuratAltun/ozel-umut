@@ -16,9 +16,9 @@ export default async function AdminEkipPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-foreground">Ekip Uyeleri</h1>
+        <h1 className="text-2xl font-bold text-foreground">Ekip Üyeleri</h1>
         <Button asChild>
-          <Link href="/admin/ekip/yeni"><Plus className="mr-2 h-4 w-4" />Yeni Uye</Link>
+          <Link href="/admin/ekip/yeni"><Plus className="mr-2 h-4 w-4" />Yeni Üye</Link>
         </Button>
       </div>
       <Card>
@@ -26,11 +26,11 @@ export default async function AdminEkipPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Uye</TableHead>
-                <TableHead>Unvan</TableHead>
-                <TableHead>Uzmanlik</TableHead>
+                <TableHead>Üye</TableHead>
+                <TableHead>Ünvan</TableHead>
+                <TableHead>Uzmanlık</TableHead>
                 <TableHead>Durum</TableHead>
-                <TableHead className="text-right">Islemler</TableHead>
+                <TableHead className="text-right">İşlemler</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -64,7 +64,7 @@ export default async function AdminEkipPage() {
               ))}
               {members.length === 0 && (
                 <TableRow>
-                  <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">Henuz ekip uyesi yok.</TableCell>
+                  <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">Henüz ekip üyesi yok.</TableCell>
                 </TableRow>
               )}
             </TableBody>

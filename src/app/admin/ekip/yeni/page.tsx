@@ -29,10 +29,10 @@ export default function YeniEkipPage() {
         email: (fd.get("email") as string) || undefined,
         sortOrder: parseInt(fd.get("sortOrder") as string) || 0,
       });
-      toast.success("Ekip uyesi eklendi");
+      toast.success("Ekip üyesi eklendi");
       router.push("/admin/ekip");
     } catch {
-      toast.error("Ekleme basarisiz");
+      toast.error("Ekleme başarısız");
     } finally {
       setLoading(false);
     }
@@ -40,7 +40,7 @@ export default function YeniEkipPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-foreground mb-6">Yeni Ekip Uyesi</h1>
+      <h1 className="text-2xl font-bold text-foreground mb-6">Yeni Ekip Üyesi</h1>
       <Card>
         <CardContent className="p-6">
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -50,14 +50,14 @@ export default function YeniEkipPage() {
                 <Input id="fullName" name="fullName" required className="mt-1.5" />
               </div>
               <div>
-                <Label htmlFor="title">Unvan *</Label>
-                <Input id="title" name="title" required placeholder="Ozel Egitim Uzmani" className="mt-1.5" />
+                <Label htmlFor="title">Ünvan *</Label>
+                <Input id="title" name="title" required placeholder="Özel Eğitim Uzmanı" className="mt-1.5" />
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="specialization">Uzmanlik Alani</Label>
-                <Input id="specialization" name="specialization" placeholder="Otizm, Ogrenme Guclugu" className="mt-1.5" />
+                <Label htmlFor="specialization">Uzmanlık Alanı</Label>
+                <Input id="specialization" name="specialization" placeholder="Otizm, Öğrenme Güçlüğü" className="mt-1.5" />
               </div>
               <div>
                 <Label htmlFor="email">E-posta</Label>
@@ -70,11 +70,11 @@ export default function YeniEkipPage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="photoUrl">Fotograf URL</Label>
+                <Label htmlFor="photoUrl">Fotoğraf URL</Label>
                 <Input id="photoUrl" name="photoUrl" type="url" className="mt-1.5" />
               </div>
               <div>
-                <Label htmlFor="sortOrder">Siralama</Label>
+                <Label htmlFor="sortOrder">Sıralama</Label>
                 <Input id="sortOrder" name="sortOrder" type="number" defaultValue="0" className="mt-1.5" />
               </div>
             </div>
@@ -83,7 +83,7 @@ export default function YeniEkipPage() {
                 {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
                 Kaydet
               </Button>
-              <Button type="button" variant="outline" onClick={() => router.back()}>Iptal</Button>
+              <Button type="button" variant="outline" onClick={() => router.back()}>İptal</Button>
             </div>
           </form>
         </CardContent>

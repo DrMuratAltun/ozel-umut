@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Galeri",
-  description: "Umut Ozel Egitim ve Rehabilitasyon Merkezi foto galeri.",
+  description: "Umut Özel Eğitim ve Rehabilitasyon Merkezi foto galeri.",
 };
 
 export default async function GaleriPage() {
@@ -23,14 +23,14 @@ export default async function GaleriPage() {
     <>
       <PageHeader
         title="Foto Galeri"
-        description="Merkezimizden kareler, etkinlikler ve ozel anlar"
+        description="Merkezimizden kareler, etkinlikler ve özel anlar"
         breadcrumbs={[{ label: "Galeri" }]}
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
         {items.length === 0 ? (
           <EmptyState
-            title="Galeri bos"
-            description="Henuz galeriye fotograf eklenmemis."
+            title="Galeri boş"
+            description="Henüz galeriye fotoğraf eklenmemiş."
           />
         ) : (
           <GalleryGrid items={items} categories={categories} />

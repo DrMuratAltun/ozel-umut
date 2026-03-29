@@ -14,7 +14,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = await prisma.project.findUnique({ where: { slug } });
-  if (!project) return { title: "Proje Bulunamadi" };
+  if (!project) return { title: "Proje Bulunamadı" };
   return { title: project.title, description: project.shortDescription || undefined };
 }
 
@@ -36,7 +36,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       />
       <div className="container mx-auto px-4 py-12 md:py-16 max-w-4xl">
         <div className="flex flex-wrap items-center gap-3 mb-6">
-          <Badge>{project.status === "active" ? "Devam Ediyor" : project.status === "completed" ? "Tamamlandi" : "Planlaniyor"}</Badge>
+          <Badge>{project.status === "active" ? "Devam Ediyor" : project.status === "completed" ? "Tamamlandı" : "Planlanıyor"}</Badge>
           {project.startDate && (
             <span className="flex items-center text-sm text-muted-foreground gap-1">
               <Calendar className="h-4 w-4" />

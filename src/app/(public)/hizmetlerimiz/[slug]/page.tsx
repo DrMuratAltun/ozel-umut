@@ -17,7 +17,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = await prisma.service.findUnique({ where: { slug } });
-  if (!service) return { title: "Hizmet Bulunamadi" };
+  if (!service) return { title: "Hizmet Bulunamadı" };
   return {
     title: service.metaTitle || service.title,
     description: service.metaDescription || service.shortDescription || undefined,
@@ -62,20 +62,20 @@ export default async function ServiceDetailPage({ params }: Props) {
             {/* CTA */}
             <div className="mt-10 p-6 rounded-lg bg-primary/5 border border-primary/10">
               <h3 className="text-lg font-semibold text-foreground mb-2">
-                Bu hizmetimiz hakkinda bilgi almak ister misiniz?
+                Bu hizmetimiz hakkında bilgi almak ister misiniz?
               </h3>
               <p className="text-muted-foreground mb-4">
-                Ucretsiz on degerlendirme gorusmesi icin bize ulasin.
+                Ücretsiz ön değerlendirme görüşmesi için bize ulaşın.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button asChild>
                   <a href={`tel:${CONTACT.phoneRaw}`}>
                     <Phone className="mr-2 h-4 w-4" />
-                    Hemen Arayin
+                    Hemen Arayın
                   </a>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="/iletisim">Iletisim Formu</Link>
+                  <Link href="/iletisim">İletişim Formu</Link>
                 </Button>
               </div>
             </div>
@@ -83,7 +83,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
           {/* Sidebar - Related Services */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Diger Hizmetlerimiz</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Diğer Hizmetlerimiz</h3>
             <div className="space-y-3">
               {relatedServices.map((s) => (
                 <Link key={s.slug} href={`/hizmetlerimiz/${s.slug}`}>

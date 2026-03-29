@@ -39,7 +39,7 @@ export function AdminSidebar() {
   async function handleLogout() {
     const supabase = createClient();
     await supabase.auth.signOut();
-    toast.success("Cikis yapildi");
+    toast.success("Çıkış yapıldı");
     router.push("/giris");
     router.refresh();
   }
@@ -54,7 +54,7 @@ export function AdminSidebar() {
           </div>
           <div>
             <p className="font-semibold text-sm text-sidebar-foreground">Umut</p>
-            <p className="text-xs text-muted-foreground">Yonetim Paneli</p>
+            <p className="text-xs text-muted-foreground">Yönetim Paneli</p>
           </div>
         </Link>
       </div>
@@ -97,7 +97,7 @@ export function AdminSidebar() {
           className="w-full justify-start gap-3 text-destructive hover:text-destructive hover:bg-destructive/10"
         >
           <LogOut className="h-4 w-4" />
-          Cikis Yap
+          Çıkış Yap
         </Button>
       </div>
     </aside>

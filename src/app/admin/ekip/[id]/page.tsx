@@ -12,7 +12,7 @@ export default async function EditEkipPage({ params }: Props) {
   if (!member) notFound();
   return (
     <div>
-      <h1 className="text-2xl font-bold text-foreground mb-6">Ekip Uyesi Duzenle</h1>
+      <h1 className="text-2xl font-bold text-foreground mb-6">Ekip Üyesi Düzenle</h1>
       <TeamEditForm member={member} />
     </div>
   );

@@ -15,18 +15,18 @@ export function Footer() {
               </div>
               <div>
                 <p className="font-bold text-background">Umut</p>
-                <p className="text-xs text-background/60">Ozel Egitim ve Rehabilitasyon</p>
+                <p className="text-xs text-background/60">Özel Eğitim ve Rehabilitasyon</p>
               </div>
             </div>
             <p className="text-sm text-background/60 leading-relaxed">
-              Ozel egitim alaninda uzman kadromuzla, ogrencilerimizin potansiyellerini en ust
-              duzeye cikarmak icin calisiyoruz.
+              Özel eğitim alanında uzman kadromuzla, öğrencilerimizin potansiyellerini en üst
+              düzeye çıkarmak için çalışıyoruz.
             </p>
           </div>
 
-          {/* Hizli linkler */}
+          {/* Hızlı linkler */}
           <div>
-            <h3 className="font-semibold text-background mb-4">Hizli Erisim</h3>
+            <h3 className="font-semibold text-background mb-4">Hızlı Erişim</h3>
             <nav className="flex flex-col gap-2">
               {NAV_LINKS.slice(0, 6).map((link) => (
                 <Link
@@ -40,9 +40,9 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Iletisim */}
+          {/* İletişim */}
           <div>
-            <h3 className="font-semibold text-background mb-4">Iletisim</h3>
+            <h3 className="font-semibold text-background mb-4">İletişim</h3>
             <div className="flex flex-col gap-3">
               <a
                 href={`tel:${CONTACT.phoneRaw}`}
@@ -65,14 +65,14 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Calisma saatleri */}
+          {/* Çalışma saatleri */}
           <div>
-            <h3 className="font-semibold text-background mb-4">Calisma Saatleri</h3>
+            <h3 className="font-semibold text-background mb-4">Çalışma Saatleri</h3>
             <div className="flex flex-col gap-2 text-sm text-background/60">
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4 shrink-0" />
                 <div>
-                  <p>Hafta ici: {WORKING_HOURS.weekdays}</p>
+                  <p>Hafta içi: {WORKING_HOURS.weekdays}</p>
                   <p>Cumartesi: {WORKING_HOURS.saturday}</p>
                   <p>Pazar: {WORKING_HOURS.sunday}</p>
                 </div>
@@ -82,7 +82,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-background/10 text-center text-sm text-background/40">
-          <p>&copy; {new Date().getFullYear()} {SITE_NAME}. Tum haklari saklidir.</p>
+          <p>&copy; {new Date().getFullYear()} {SITE_NAME}. Tüm hakları saklıdır.</p>
         </div>
       </div>
     </footer>

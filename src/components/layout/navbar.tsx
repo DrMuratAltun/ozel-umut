@@ -37,7 +37,7 @@ export function Navbar() {
           </div>
           <div className="hidden sm:block">
             <p className="font-bold text-lg leading-tight text-foreground">Umut</p>
-            <p className="text-xs text-muted-foreground leading-tight">Ozel Egitim ve Rehabilitasyon</p>
+            <p className="text-xs text-muted-foreground leading-tight">Özel Eğitim ve Rehabilitasyon</p>
           </div>
         </Link>
 
@@ -63,7 +63,7 @@ export function Navbar() {
           <Button asChild className="hidden md:inline-flex" size="sm">
             <a href={`tel:${CONTACT.phoneRaw}`}>
               <Phone className="mr-1.5 h-4 w-4" />
-              Bizi Arayin
+              Bizi Arayın
             </a>
           </Button>
 

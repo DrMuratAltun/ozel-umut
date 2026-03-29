@@ -1,10 +1,10 @@
 import { GraduationCap, Calendar, Users, BookOpen } from "lucide-react";
 
 const STATS = [
-  { label: "Yillik Deneyim", value: "10+", icon: Calendar },
-  { label: "Mutlu Ogrenci", value: "500+", icon: GraduationCap },
+  { label: "Yıllık Deneyim", value: "10+", icon: Calendar },
+  { label: "Mutlu Öğrenci", value: "500+", icon: GraduationCap },
   { label: "Uzman Kadro", value: "15+", icon: Users },
-  { label: "Egitim Programi", value: "6", icon: BookOpen },
+  { label: "Eğitim Programı", value: "6", icon: BookOpen },
 ];
 
 export function StatsSection() {

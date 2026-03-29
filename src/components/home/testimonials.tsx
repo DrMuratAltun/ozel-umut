@@ -4,24 +4,24 @@ import { Star, Quote } from "lucide-react";
 
 const TESTIMONIALS = [
   {
-    name: "Ayse K.",
+    name: "Ayşe K.",
     relation: "Veli",
     content:
-      "Cocugumuzun gelisiminde inanilmaz bir ilerleme kaydettik. Ogretmenler cok ilgili ve alakali. Her gun okula gitmek istiyor artik.",
+      "Çocuğumuzun gelişiminde inanılmaz bir ilerleme kaydettik. Öğretmenler çok ilgili ve alakalı. Her gün okula gitmek istiyor artık.",
     rating: 5,
   },
   {
     name: "Mehmet Y.",
     relation: "Veli",
     content:
-      "Dil ve konusma terapisi sonuclarini kisa surede gormeye basladik. Profesyonel kadro ve sicak ortam icin tesekkur ediyoruz.",
+      "Dil ve konuşma terapisi sonuçlarını kısa sürede görmeye başladık. Profesyonel kadro ve sıcak ortam için teşekkür ediyoruz.",
     rating: 5,
   },
   {
     name: "Fatma D.",
     relation: "Veli",
     content:
-      "Umut Ozel Egitim ailesi gercekten adina yarasiyor. Cocuklarimiza umut asiliyor burada. Herkese gonul rahatligiyla tavsiye ederim.",
+      "Umut Özel Eğitim ailesi gerçekten adına yaraşıyor. Çocuklarımıza umut aşılıyor burada. Herkese gönül rahatlığıyla tavsiye ederim.",
     rating: 5,
   },
 ];
@@ -31,8 +31,8 @@ export function Testimonials() {
     <section className="py-16 md:py-20">
       <div className="container mx-auto px-4">
         <SectionHeader
-          title="Velilerimizin Gorusleri"
-          subtitle="Ailelerimizden gelen degerli geri bildirimler"
+          title="Velilerimizin Görüşleri"
+          subtitle="Ailelerimizden gelen değerli geri bildirimler"
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {TESTIMONIALS.map((testimonial, index) => (

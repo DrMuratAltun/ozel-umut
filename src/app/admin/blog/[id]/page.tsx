@@ -15,7 +15,7 @@ export default async function EditBlogPage({ params }: Props) {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-foreground mb-6">Blog Yazisi Duzenle</h1>
+      <h1 className="text-2xl font-bold text-foreground mb-6">Blog Yazısı Düzenle</h1>
       <BlogEditForm post={post} />
     </div>
   );

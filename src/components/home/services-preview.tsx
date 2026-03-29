@@ -12,38 +12,38 @@ import {
 
 const SERVICES = [
   {
-    title: "Ozel Egitim",
-    description: "Bireysel ihtiyaclara uygun ozel egitim programlari",
+    title: "Özel Eğitim",
+    description: "Bireysel ihtiyaçlara uygun özel eğitim programları",
     icon: BookOpen,
     href: "/hizmetlerimiz/ozel-egitim",
   },
   {
-    title: "Dil ve Konusma Terapisi",
-    description: "Dil, konusma ve iletisim becerilerinin gelistirilmesi",
+    title: "Dil ve Konuşma Terapisi",
+    description: "Dil, konuşma ve iletişim becerilerinin geliştirilmesi",
     icon: MessageCircle,
     href: "/hizmetlerimiz/dil-ve-konusma-terapisi",
   },
   {
     title: "Fizyoterapi",
-    description: "Motor gelisim ve fiziksel rehabilitasyon destegi",
+    description: "Motor gelişim ve fiziksel rehabilitasyon desteği",
     icon: Activity,
     href: "/hizmetlerimiz/fizyoterapi",
   },
   {
-    title: "Psikolojik Danismanlik",
-    description: "Cocuk ve aile odakli psikolojik destek hizmetleri",
+    title: "Psikolojik Danışmanlık",
+    description: "Çocuk ve aile odaklı psikolojik destek hizmetleri",
     icon: Brain,
     href: "/hizmetlerimiz/psikolojik-danismanlik",
   },
   {
     title: "Ergoterapi",
-    description: "Gunluk yasam becerilerinin kazandirilmasi",
+    description: "Günlük yaşam becerilerinin kazandırılması",
     icon: Hand,
     href: "/hizmetlerimiz/ergoterapi",
   },
   {
     title: "Odyoloji",
-    description: "Isitme degerlendirmesi ve isitme cihazi uygulamalari",
+    description: "İşitme değerlendirmesi ve işitme cihazı uygulamaları",
     icon: Ear,
     href: "/hizmetlerimiz/odyoloji",
   },
@@ -55,7 +55,7 @@ export function ServicesPreview() {
       <div className="container mx-auto px-4">
         <SectionHeader
           title="Hizmetlerimiz"
-          subtitle="Uzman kadromuzla sunduğumuz kapsamli hizmetlerimiz"
+          subtitle="Uzman kadromuzla sunduğumuz kapsamlı hizmetlerimiz"
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES.map((service) => (

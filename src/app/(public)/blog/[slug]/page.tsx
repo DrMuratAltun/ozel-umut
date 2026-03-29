@@ -18,7 +18,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await prisma.blogPost.findUnique({ where: { slug } });
-  if (!post) return { title: "Yazi Bulunamadi" };
+  if (!post) return { title: "Yazı Bulunamadı" };
   return {
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.excerpt || undefined,
@@ -100,7 +100,7 @@ export default async function BlogDetailPage({ params }: Props) {
 
           {/* Sidebar */}
           <aside>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Diger Yazilar</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Diğer Yazılar</h3>
             <div className="space-y-3">
               {relatedPosts.map((p) => (
                 <Link key={p.slug} href={`/blog/${p.slug}`}>

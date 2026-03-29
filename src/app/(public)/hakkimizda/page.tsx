@@ -4,31 +4,31 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Target, Eye, Award, Users, BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Hakkimizda",
+  title: "Hakkımızda",
   description:
-    "Umut Ozel Egitim ve Rehabilitasyon Merkezi hakkinda bilgi edinin. Misyonumuz, vizyonumuz ve degerlerimiz.",
+    "Umut Özel Eğitim ve Rehabilitasyon Merkezi hakkında bilgi edinin. Misyonumuz, vizyonumuz ve değerlerimiz.",
 };
 
 const VALUES = [
   {
     icon: Heart,
-    title: "Sevgi ve Sefkat",
-    description: "Her ogrencimize sevgi dolu, sefkatli ve anlayisli bir ortam sunuyoruz.",
+    title: "Sevgi ve Şefkat",
+    description: "Her öğrencimize sevgi dolu, şefkatli ve anlayışlı bir ortam sunuyoruz.",
   },
   {
     icon: Award,
     title: "Profesyonellik",
-    description: "Alaninda uzman kadromuzla en yuksek standartlarda hizmet veriyoruz.",
+    description: "Alanında uzman kadromuzla en yüksek standartlarda hizmet veriyoruz.",
   },
   {
     icon: Users,
-    title: "Aile Isbirligi",
-    description: "Ailelerle yakin isbirligi icinde cocuklarin gelisimini destekliyoruz.",
+    title: "Aile İşbirliği",
+    description: "Ailelerle yakın işbirliği içinde çocukların gelişimini destekliyoruz.",
   },
   {
     icon: BookOpen,
-    title: "Surekli Gelisim",
-    description: "Guncel bilimsel yaklasimlar ve yenilikci yontemler kullaniyoruz.",
+    title: "Sürekli Gelişim",
+    description: "Güncel bilimsel yaklaşımlar ve yenilikçi yöntemler kullanıyoruz.",
   },
 ];
 
@@ -36,9 +36,9 @@ export default function HakkimizdaPage() {
   return (
     <>
       <PageHeader
-        title="Hakkimizda"
-        description="Umut Ozel Egitim ve Rehabilitasyon Merkezi olarak, her cocugun potansiyelinin degerli olduguna inaniyoruz."
-        breadcrumbs={[{ label: "Hakkimizda" }]}
+        title="Hakkımızda"
+        description="Umut Özel Eğitim ve Rehabilitasyon Merkezi olarak, her çocuğun potansiyelinin değerli olduğuna inanıyoruz."
+        breadcrumbs={[{ label: "Hakkımızda" }]}
       />
 
       <div className="container mx-auto px-4 py-12 md:py-16">
@@ -53,10 +53,10 @@ export default function HakkimizdaPage() {
                 <h2 className="text-2xl font-bold text-foreground">Misyonumuz</h2>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                Ozel gereksinimli bireylerin egitim ve rehabilitasyon ihtiyaclarini, bilimsel
-                yontemler ve bireysel yaklasimlarla karsilayarak, bagimsiz yasam becerilerini
-                gelistirmek ve toplumsal katilimlarini desteklemektir. Her bireyin esit
-                firsatlara sahip olmasi gerektigi ilkesiyle hareket ediyoruz.
+                Özel gereksinimli bireylerin eğitim ve rehabilitasyon ihtiyaçlarını, bilimsel
+                yöntemler ve bireysel yaklaşımlarla karşılayarak, bağımsız yaşam becerilerini
+                geliştirmek ve toplumsal katılımlarını desteklemektir. Her bireyin eşit
+                fırsatlara sahip olması gerektiği ilkesiyle hareket ediyoruz.
               </p>
             </CardContent>
           </Card>
@@ -69,37 +69,37 @@ export default function HakkimizdaPage() {
                 <h2 className="text-2xl font-bold text-foreground">Vizyonumuz</h2>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                Bolgemizde ozel egitim ve rehabilitasyon alaninda oncu, yenilikci ve guvenilir
-                bir kurum olmak. Ogrencilerimizin ve ailelerinin yasam kalitesini yukseltmek,
-                toplumda farkindalik olusturmak ve kapsayici egitim anlayisini
-                yayginlastirmak hedefimizdir.
+                Bölgemizde özel eğitim ve rehabilitasyon alanında öncü, yenilikçi ve güvenilir
+                bir kurum olmak. Öğrencilerimizin ve ailelerinin yaşam kalitesini yükseltmek,
+                toplumda farkındalık oluşturmak ve kapsayıcı eğitim anlayışını
+                yaygınlaştırmak hedefimizdir.
               </p>
             </CardContent>
           </Card>
         </div>
 
-        {/* Tarihce */}
+        {/* Tarihçe */}
         <div className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Tarihcemiz</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Tarihçemiz</h2>
           <div className="prose prose-lg max-w-none text-muted-foreground">
             <p>
-              Umut Ozel Egitim ve Rehabilitasyon Merkezi, Korkuteli ilcesinde ozel gereksinimli
-              cocuklarin egitim ihtiyaclarini karsilamak amaciyla kurulmustur. Kurulusumuzdan bu
-              yana yuzlerce ogrencimize hizmet vermis, onlarin gelisim yolculuklarinda yanlarinda
-              olmusuz.
+              Umut Özel Eğitim ve Rehabilitasyon Merkezi, Korkuteli ilçesinde özel gereksinimli
+              çocukların eğitim ihtiyaçlarını karşılamak amacıyla kurulmuştur. Kuruluşumuzdan bu
+              yana yüzlerce öğrencimize hizmet vermiş, onların gelişim yolculuklarında yanlarında
+              olmuşuz.
             </p>
             <p>
-              Modern egitim teknikleri, deneyimli kadromuz ve aile odakli yaklasimimizla,
-              ogrencilerimizin bireysel ihtiyaclarina yonelik programlar gelistirerek, onlarin
-              toplumsal yasamda aktif bireyler olmalari icin calismaktayiz.
+              Modern eğitim teknikleri, deneyimli kadromuz ve aile odaklı yaklaşımımızla,
+              öğrencilerimizin bireysel ihtiyaçlarına yönelik programlar geliştirerek, onların
+              toplumsal yaşamda aktif bireyler olmaları için çalışmaktayız.
             </p>
           </div>
         </div>
 
-        {/* Degerlerimiz */}
+        {/* Değerlerimiz */}
         <div>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-            Degerlerimiz
+            Değerlerimiz
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {VALUES.map((value) => (

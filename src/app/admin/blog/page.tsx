@@ -18,11 +18,11 @@ export default async function AdminBlogPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-foreground">Blog Yazilari</h1>
+        <h1 className="text-2xl font-bold text-foreground">Blog Yazıları</h1>
         <Button asChild>
           <Link href="/admin/blog/yeni">
             <Plus className="mr-2 h-4 w-4" />
-            Yeni Yazi
+            Yeni Yazı
           </Link>
         </Button>
       </div>
@@ -32,11 +32,11 @@ export default async function AdminBlogPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Baslik</TableHead>
+                <TableHead>Başlık</TableHead>
                 <TableHead>Kategori</TableHead>
                 <TableHead>Durum</TableHead>
                 <TableHead>Tarih</TableHead>
-                <TableHead className="text-right">Islemler</TableHead>
+                <TableHead className="text-right">İşlemler</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -48,7 +48,7 @@ export default async function AdminBlogPage() {
                   </TableCell>
                   <TableCell>
                     <Badge variant={post.status === "published" ? "default" : "outline"}>
-                      {post.status === "published" ? "Yayinda" : "Taslak"}
+                      {post.status === "published" ? "Yayında" : "Taslak"}
                     </Badge>
                   </TableCell>
                   <TableCell className="text-sm text-muted-foreground">
@@ -72,7 +72,7 @@ export default async function AdminBlogPage() {
               {posts.length === 0 && (
                 <TableRow>
                   <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
-                    Henuz blog yazisi yok.
+                    Henüz blog yazısı yok.
                   </TableCell>
                 </TableRow>
               )}

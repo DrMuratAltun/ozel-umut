@@ -10,5 +10,5 @@ export default async function EditHizmetPage({ params }: Props) {
   const { id } = await params;
   const service = await prisma.service.findUnique({ where: { id } });
   if (!service) notFound();
-  return <div><h1 className="text-2xl font-bold text-foreground mb-6">Hizmet Duzenle</h1><ServiceEditForm service={service} /></div>;
+  return <div><h1 className="text-2xl font-bold text-foreground mb-6">Hizmet Düzenle</h1><ServiceEditForm service={service} /></div>;
 }

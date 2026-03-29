@@ -12,19 +12,19 @@ export function HeroSection() {
             Korkuteli, Antalya
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-            Her Cocugun{" "}
+            Her Çocuğun{" "}
             <span className="text-primary">Potansiyeli</span>{" "}
-            Degerlidir
+            Değerlidir
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Uzman kadromuz ve bireysel egitim programlarimizla, cocuklarinizin gelisimini
-            destekliyor, geleceklerine umutla bakiyoruz.
+            Uzman kadromuz ve bireysel eğitim programlarımızla, çocuklarınızın gelişimini
+            destekliyor, geleceklerine umutla bakıyoruz.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <Button asChild size="lg" className="text-base">
               <a href={`tel:${CONTACT.phoneRaw}`}>
                 <Phone className="mr-2 h-5 w-5" />
-                Randevu Alin
+                Randevu Alın
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="text-base">

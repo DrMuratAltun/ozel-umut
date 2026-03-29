@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Umut Ozel Egitim ve Rehabilitasyon Merkezi blog yazilari, duyurular ve rehberlik makaleleri.",
+  description: "Umut Özel Eğitim ve Rehabilitasyon Merkezi blog yazıları, duyurular ve rehberlik makaleleri.",
 };
 
 export default async function BlogPage() {
@@ -25,14 +25,14 @@ export default async function BlogPage() {
     <>
       <PageHeader
         title="Blog"
-        description="Ozel egitim, rehberlik ve gelisim hakkinda yazilarimiz"
+        description="Özel eğitim, rehberlik ve gelişim hakkında yazılarımız"
         breadcrumbs={[{ label: "Blog" }]}
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
         {posts.length === 0 ? (
           <EmptyState
-            title="Henuz yazi yok"
-            description="Blog yazilari yakindir burada yayinlanacak."
+            title="Henüz yazı yok"
+            description="Blog yazıları yakındır burada yayınlanacak."
           />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

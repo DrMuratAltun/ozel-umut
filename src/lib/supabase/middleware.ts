@@ -40,7 +40,7 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // Giris sayfasinda zaten giris yapmissa admin'e yonlendir
+  // Giriş sayfasında zaten giriş yapmışsa admin'e yönlendir
   if (request.nextUrl.pathname === "/giris" && user) {
     const url = request.nextUrl.clone();
     url.pathname = "/admin";

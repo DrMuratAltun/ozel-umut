@@ -34,32 +34,32 @@ export default function AdminGaleriPage() {
         category: (fd.get("category") as string) || undefined,
       });
       setItems((prev) => [...prev, item as unknown as GalleryItem]);
-      toast.success("Gorsel eklendi");
+      toast.success("Görsel eklendi");
       setAddOpen(false);
-    } catch { toast.error("Ekleme basarisiz"); } finally { setLoading(false); }
+    } catch { toast.error("Ekleme başarısız"); } finally { setLoading(false); }
   }
 
   async function handleDelete(id: string) {
     try {
       await deleteItem("gallery", id);
       setItems((prev) => prev.filter((i) => i.id !== id));
-      toast.success("Gorsel silindi");
-    } catch { toast.error("Silme basarisiz"); }
+      toast.success("Görsel silindi");
+    } catch { toast.error("Silme başarısız"); }
   }
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-foreground">Galeri Yonetimi</h1>
+        <h1 className="text-2xl font-bold text-foreground">Galeri Yönetimi</h1>
         <Dialog open={addOpen} onOpenChange={setAddOpen}>
           <DialogTrigger render={<Button />}>
-            <Plus className="mr-2 h-4 w-4" />Gorsel Ekle
+            <Plus className="mr-2 h-4 w-4" />Görsel Ekle
           </DialogTrigger>
           <DialogContent>
-            <DialogHeader><DialogTitle>Yeni Gorsel Ekle</DialogTitle></DialogHeader>
+            <DialogHeader><DialogTitle>Yeni Görsel Ekle</DialogTitle></DialogHeader>
             <form onSubmit={handleAdd} className="space-y-4">
-              <div><Label htmlFor="imageUrl">Gorsel URL *</Label><Input id="imageUrl" name="imageUrl" type="url" required className="mt-1.5" /></div>
-              <div><Label htmlFor="title">Baslik</Label><Input id="title" name="title" className="mt-1.5" /></div>
+              <div><Label htmlFor="imageUrl">Görsel URL *</Label><Input id="imageUrl" name="imageUrl" type="url" required className="mt-1.5" /></div>
+              <div><Label htmlFor="title">Başlık</Label><Input id="title" name="title" className="mt-1.5" /></div>
               <div><Label htmlFor="category">Kategori</Label><Input id="category" name="category" placeholder="Etkinlikler, Siniflar..." className="mt-1.5" /></div>
               <Button type="submit" disabled={loading} className="w-full">
                 {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Plus className="mr-2 h-4 w-4" />}Ekle
@@ -70,7 +70,7 @@ export default function AdminGaleriPage() {
       </div>
 
       {items.length === 0 ? (
-        <Card><CardContent className="p-12 text-center text-muted-foreground">Henuz galeri gorseli yok.</CardContent></Card>
+        <Card><CardContent className="p-12 text-center text-muted-foreground">Henüz galeri görseli yok.</CardContent></Card>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {items.map((item) => (
@@ -79,7 +79,7 @@ export default function AdminGaleriPage() {
                 <img src={item.imageUrl} alt={item.title || "Galeri"} className="w-full h-full object-cover" />
               </div>
               <div className="p-3">
-                <p className="text-sm font-medium truncate">{item.title || "Baslksiz"}</p>
+                <p className="text-sm font-medium truncate">{item.title || "Başlıksız"}</p>
                 {item.category && <p className="text-xs text-muted-foreground">{item.category}</p>}
               </div>
               <Button

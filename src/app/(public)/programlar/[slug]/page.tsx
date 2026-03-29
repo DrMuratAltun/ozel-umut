@@ -18,7 +18,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const program = await prisma.program.findUnique({ where: { slug } });
-  if (!program) return { title: "Program Bulunamadi" };
+  if (!program) return { title: "Program Bulunamadı" };
   return {
     title: program.metaTitle || program.title,
     description: program.metaDescription || program.shortDescription || undefined,
@@ -64,7 +64,7 @@ export default async function ProgramDetailPage({ params }: Props) {
 
             {program.features.length > 0 && (
               <div className="mt-8">
-                <h3 className="text-lg font-semibold text-foreground mb-4">Program Ozellikleri</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-4">Program Özellikleri</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {program.features.map((feature: string) => (
                     <div key={feature} className="flex items-center gap-2">
@@ -78,27 +78,27 @@ export default async function ProgramDetailPage({ params }: Props) {
 
             <div className="mt-10 p-6 rounded-lg bg-primary/5 border border-primary/10">
               <h3 className="text-lg font-semibold text-foreground mb-2">
-                Bu program hakkinda bilgi almak ister misiniz?
+                Bu program hakkında bilgi almak ister misiniz?
               </h3>
               <p className="text-muted-foreground mb-4">
-                Ucretsiz on degerlendirme icin bize ulasin.
+                Ücretsiz ön değerlendirme için bize ulaşın.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button asChild>
                   <a href={`tel:${CONTACT.phoneRaw}`}>
                     <Phone className="mr-2 h-4 w-4" />
-                    Hemen Arayin
+                    Hemen Arayın
                   </a>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="/iletisim">Iletisim Formu</Link>
+                  <Link href="/iletisim">İletişim Formu</Link>
                 </Button>
               </div>
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Diger Programlar</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Diğer Programlar</h3>
             <div className="space-y-3">
               {relatedPrograms.map((p) => (
                 <Link key={p.slug} href={`/programlar/${p.slug}`}>

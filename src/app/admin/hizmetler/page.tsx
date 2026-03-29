@@ -19,7 +19,7 @@ export default async function AdminHizmetlerPage() {
       </div>
       <Card><CardContent className="p-0">
         <Table>
-          <TableHeader><TableRow><TableHead>Baslik</TableHead><TableHead>Slug</TableHead><TableHead>Durum</TableHead><TableHead>Sira</TableHead><TableHead className="text-right">Islemler</TableHead></TableRow></TableHeader>
+          <TableHeader><TableRow><TableHead>Başlık</TableHead><TableHead>Slug</TableHead><TableHead>Durum</TableHead><TableHead>Sıra</TableHead><TableHead className="text-right">İşlemler</TableHead></TableRow></TableHeader>
           <TableBody>
             {services.map((s) => (
               <TableRow key={s.id}>
@@ -35,7 +35,7 @@ export default async function AdminHizmetlerPage() {
                 </TableCell>
               </TableRow>
             ))}
-            {services.length === 0 && <TableRow><TableCell colSpan={5} className="text-center py-8 text-muted-foreground">Henuz hizmet yok.</TableCell></TableRow>}
+            {services.length === 0 && <TableRow><TableCell colSpan={5} className="text-center py-8 text-muted-foreground">Henüz hizmet yok.</TableCell></TableRow>}
           </TableBody>
         </Table>
       </CardContent></Card>

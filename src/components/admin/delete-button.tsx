@@ -30,11 +30,11 @@ export function DeleteButton({ id, type }: DeleteButtonProps) {
     setLoading(true);
     try {
       await deleteItem(type, id);
-      toast.success("Basariyla silindi");
+      toast.success("Başarıyla silindi");
       setOpen(false);
       router.refresh();
     } catch {
-      toast.error("Silme islemi basarisiz");
+      toast.error("Silme işlemi başarısız");
     } finally {
       setLoading(false);
     }
@@ -47,13 +47,13 @@ export function DeleteButton({ id, type }: DeleteButtonProps) {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Silme Onayi</DialogTitle>
+          <DialogTitle>Silme Onayı</DialogTitle>
           <DialogDescription>
-            Bu ogeyikaldirmak istediginizden emin misiniz? Bu islem geri alinamaz.
+            Bu öğeyi kaldırmak istediğinizden emin misiniz? Bu işlem geri alınamaz.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button variant="outline" onClick={() => setOpen(false)}>Iptal</Button>
+          <Button variant="outline" onClick={() => setOpen(false)}>İptal</Button>
           <Button variant="destructive" onClick={handleDelete} disabled={loading}>
             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Sil

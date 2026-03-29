@@ -30,10 +30,10 @@ export default function YeniBlogPage() {
         status: formData.get("status") as string || "draft",
         coverImageUrl: (formData.get("coverImageUrl") as string) || undefined,
       });
-      toast.success("Blog yazisi olusturuldu");
+      toast.success("Blog yazısı oluşturuldu");
       router.push("/admin/blog");
     } catch {
-      toast.error("Olusturma basarisiz");
+      toast.error("Oluşturma başarısız");
     } finally {
       setLoading(false);
     }
@@ -41,20 +41,20 @@ export default function YeniBlogPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-foreground mb-6">Yeni Blog Yazisi</h1>
+      <h1 className="text-2xl font-bold text-foreground mb-6">Yeni Blog Yazısı</h1>
       <Card>
         <CardContent className="p-6">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <Label htmlFor="title">Baslik *</Label>
+              <Label htmlFor="title">Başlık *</Label>
               <Input id="title" name="title" required className="mt-1.5" />
             </div>
             <div>
-              <Label htmlFor="excerpt">Ozet</Label>
+              <Label htmlFor="excerpt">Özet</Label>
               <Textarea id="excerpt" name="excerpt" rows={2} className="mt-1.5" />
             </div>
             <div>
-              <Label htmlFor="content">Icerik (Markdown) *</Label>
+              <Label htmlFor="content">İçerik (Markdown) *</Label>
               <Textarea id="content" name="content" rows={15} required className="mt-1.5 font-mono text-sm" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -70,13 +70,13 @@ export default function YeniBlogPage() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="draft">Taslak</SelectItem>
-                    <SelectItem value="published">Yayinla</SelectItem>
+                    <SelectItem value="published">Yayınla</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
             <div>
-              <Label htmlFor="coverImageUrl">Kapak Gorseli URL</Label>
+              <Label htmlFor="coverImageUrl">Kapak Görseli URL</Label>
               <Input id="coverImageUrl" name="coverImageUrl" type="url" className="mt-1.5" />
             </div>
             <div className="flex gap-3 pt-4">
@@ -84,7 +84,7 @@ export default function YeniBlogPage() {
                 {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
                 Kaydet
               </Button>
-              <Button type="button" variant="outline" onClick={() => router.back()}>Iptal</Button>
+              <Button type="button" variant="outline" onClick={() => router.back()}>İptal</Button>
             </div>
           </form>
         </CardContent>

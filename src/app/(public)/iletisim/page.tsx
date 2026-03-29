@@ -6,18 +6,18 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { CONTACT, WORKING_HOURS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Iletisim",
+  title: "İletişim",
   description:
-    "Umut Ozel Egitim ve Rehabilitasyon Merkezi iletisim bilgileri. Bize ulasin, sorularinizi sorun.",
+    "Umut Özel Eğitim ve Rehabilitasyon Merkezi iletişim bilgileri. Bize ulaşın, sorularınızı sorun.",
 };
 
 export default function IletisimPage() {
   return (
     <>
       <PageHeader
-        title="Iletisim"
-        description="Sorulariniz icin bize ulasin. Size yardimci olmaktan memnuniyet duyariz."
-        breadcrumbs={[{ label: "Iletisim" }]}
+        title="İletişim"
+        description="Sorularınız için bize ulaşın. Size yardımcı olmaktan memnuniyet duyarız."
+        breadcrumbs={[{ label: "İletişim" }]}
       />
 
       <div className="container mx-auto px-4 py-12 md:py-16">
@@ -73,7 +73,7 @@ export default function IletisimPage() {
                   <Clock className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Calisma Saatleri</h3>
+                  <h3 className="font-semibold text-foreground">Çalışma Saatleri</h3>
                   <div className="text-sm text-muted-foreground space-y-1 mt-1">
                     <p>Pazartesi - Cuma: {WORKING_HOURS.weekdays}</p>
                     <p>Cumartesi: {WORKING_HOURS.saturday}</p>
@@ -98,7 +98,7 @@ export default function IletisimPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Umut Ozel Egitim Konum"
+                title="Umut Özel Eğitim Konum"
               />
             </div>
           </div>

@@ -19,12 +19,12 @@ export default async function AdminProjelerPage() {
       </div>
       <Card><CardContent className="p-0">
         <Table>
-          <TableHeader><TableRow><TableHead>Baslik</TableHead><TableHead>Durum</TableHead><TableHead>Sira</TableHead><TableHead className="text-right">Islemler</TableHead></TableRow></TableHeader>
+          <TableHeader><TableRow><TableHead>Başlık</TableHead><TableHead>Durum</TableHead><TableHead>Sıra</TableHead><TableHead className="text-right">İşlemler</TableHead></TableRow></TableHeader>
           <TableBody>
             {projects.map((p) => (
               <TableRow key={p.id}>
                 <TableCell className="font-medium">{p.title}</TableCell>
-                <TableCell><Badge>{p.status === "active" ? "Devam Ediyor" : p.status === "completed" ? "Tamamlandi" : "Planlaniyor"}</Badge></TableCell>
+                <TableCell><Badge>{p.status === "active" ? "Devam Ediyor" : p.status === "completed" ? "Tamamlandı" : "Planlanıyor"}</Badge></TableCell>
                 <TableCell>{p.sortOrder}</TableCell>
                 <TableCell className="text-right">
                   <div className="flex items-center justify-end gap-2">
@@ -34,7 +34,7 @@ export default async function AdminProjelerPage() {
                 </TableCell>
               </TableRow>
             ))}
-            {projects.length === 0 && <TableRow><TableCell colSpan={4} className="text-center py-8 text-muted-foreground">Henuz proje yok.</TableCell></TableRow>}
+            {projects.length === 0 && <TableRow><TableCell colSpan={4} className="text-center py-8 text-muted-foreground">Henüz proje yok.</TableCell></TableRow>}
           </TableBody>
         </Table>
       </CardContent></Card>

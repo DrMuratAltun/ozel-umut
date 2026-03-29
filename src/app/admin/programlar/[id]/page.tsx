@@ -10,5 +10,5 @@ export default async function EditProgramPage({ params }: Props) {
   const { id } = await params;
   const program = await prisma.program.findUnique({ where: { id } });
   if (!program) notFound();
-  return <div><h1 className="text-2xl font-bold text-foreground mb-6">Program Duzenle</h1><ProgramEditForm program={program} /></div>;
+  return <div><h1 className="text-2xl font-bold text-foreground mb-6">Program Düzenle</h1><ProgramEditForm program={program} /></div>;
 }

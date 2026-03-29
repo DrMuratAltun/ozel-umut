@@ -10,5 +10,5 @@ export default async function EditProjePage({ params }: Props) {
   const { id } = await params;
   const project = await prisma.project.findUnique({ where: { id } });
   if (!project) notFound();
-  return <div><h1 className="text-2xl font-bold text-foreground mb-6">Proje Duzenle</h1><ProjectEditForm project={project} /></div>;
+  return <div><h1 className="text-2xl font-bold text-foreground mb-6">Proje Düzenle</h1><ProjectEditForm project={project} /></div>;
 }

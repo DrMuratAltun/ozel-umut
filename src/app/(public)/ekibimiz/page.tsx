@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Ekibimiz",
-  description: "Umut Ozel Egitim ve Rehabilitasyon Merkezi uzman kadrosu.",
+  description: "Umut Özel Eğitim ve Rehabilitasyon Merkezi uzman kadrosu.",
 };
 
 export default async function EkibimizPage() {
@@ -19,17 +19,17 @@ export default async function EkibimizPage() {
   });
 
   const displayTeam = team.length > 0 ? team : [
-    { id: "1", fullName: "Uzman Kadro", title: "Ozel Egitim Uzmani", specialization: "Otizm, Zihinsel Yetersizlik", bio: "Alaninda deneyimli uzmanlarimiz ile hizmetinizdeyiz.", photoUrl: null },
-    { id: "2", fullName: "Uzman Kadro", title: "Dil ve Konusma Terapisti", specialization: "Dil Gecikmesi, Artikulasyon", bio: "Cocugunuzun iletisim becerilerini gelistirmek icin buradayiz.", photoUrl: null },
-    { id: "3", fullName: "Uzman Kadro", title: "Fizyoterapist", specialization: "Motor Gelisim, Rehabilitasyon", bio: "Fiziksel gelisim ve rehabilitasyon programlari sunuyoruz.", photoUrl: null },
-    { id: "4", fullName: "Uzman Kadro", title: "Psikolog", specialization: "Cocuk Psikolojisi, Aile Terapisi", bio: "Cocuk ve aile odakli psikolojik destek hizmetleri veriyoruz.", photoUrl: null },
+    { id: "1", fullName: "Uzman Kadro", title: "Özel Eğitim Uzmanı", specialization: "Otizm, Zihinsel Yetersizlik", bio: "Alanında deneyimli uzmanlarımız ile hizmetinizdeyiz.", photoUrl: null },
+    { id: "2", fullName: "Uzman Kadro", title: "Dil ve Konuşma Terapisti", specialization: "Dil Gecikmesi, Artikülasyon", bio: "Çocuğunuzun iletişim becerilerini geliştirmek için buradayız.", photoUrl: null },
+    { id: "3", fullName: "Uzman Kadro", title: "Fizyoterapist", specialization: "Motor Gelişim, Rehabilitasyon", bio: "Fiziksel gelişim ve rehabilitasyon programları sunuyoruz.", photoUrl: null },
+    { id: "4", fullName: "Uzman Kadro", title: "Psikolog", specialization: "Çocuk Psikolojisi, Aile Terapisi", bio: "Çocuk ve aile odaklı psikolojik destek hizmetleri veriyoruz.", photoUrl: null },
   ];
 
   return (
     <>
       <PageHeader
         title="Ekibimiz"
-        description="Alaninda uzman, deneyimli ve tutkulu kadromuzla taniniz"
+        description="Alanında uzman, deneyimli ve tutkulu kadromuzla tanışın"
         breadcrumbs={[{ label: "Ekibimiz" }]}
       />
       <div className="container mx-auto px-4 py-12 md:py-16">

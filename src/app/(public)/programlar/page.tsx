@@ -10,8 +10,8 @@ import { prisma } from "@/lib/prisma";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Egitim Programlari",
-  description: "Umut Ozel Egitim ve Rehabilitasyon Merkezi egitim programlari: zihinsel yetersizlik, otizm, ogrenme guclugu, dil-konusma bozukluklari destegi.",
+  title: "Eğitim Programları",
+  description: "Umut Özel Eğitim ve Rehabilitasyon Merkezi eğitim programları: zihinsel yetersizlik, otizm, öğrenme güçlüğü, dil-konuşma bozuklukları desteği.",
 };
 
 export default async function ProgramlarPage() {
@@ -22,19 +22,19 @@ export default async function ProgramlarPage() {
 
   // Fallback static data when DB is empty
   const displayPrograms = programs.length > 0 ? programs : [
-    { slug: "zihinsel-yetersizlik-destegi", title: "Zihinsel Yetersizlik Destegi", shortDescription: "Zihinsel gelisim geriliği olan bireylere yonelik bireysel egitim programlari.", targetGroup: "3-18 Yas", features: ["Bireysel egitim", "Gunluk yasam becerileri", "Sosyal uyum"] },
-    { slug: "otizm-spektrum-bozuklugu-destegi", title: "Otizm Spektrum Bozuklugu Destegi", shortDescription: "Otizm spektrum bozuklugu teshisi almis bireylere ozel yapilandirilmis egitim.", targetGroup: "2-18 Yas", features: ["ABA terapi", "Sosyal beceri", "Iletisim destegi"] },
-    { slug: "ogrenme-guclugu-destegi", title: "Ogrenme Guclugu Destegi", shortDescription: "Disleksi, diskalkuli ve diger ogrenme gucluklerinde akademik destek.", targetGroup: "6-18 Yas", features: ["Okuma-yazma", "Matematik destegi", "Dikkat calismalari"] },
-    { slug: "dil-konusma-bozukluklari-destegi", title: "Dil ve Konusma Bozukluklari Destegi", shortDescription: "Dil gecikmesi, artikulasyon ve akicilik bozukluklarinda uzman terapi.", targetGroup: "2-18 Yas", features: ["Dil terapisi", "Artikulasyon", "Pragmatik dil"] },
-    { slug: "bedensel-yetersizlik-destegi", title: "Bedensel Yetersizlik Destegi", shortDescription: "Bedensel engelli bireylere yonelik fiziksel rehabilitasyon ve egitim.", targetGroup: "3-18 Yas", features: ["Fizyoterapi", "Motor gelisim", "Adaptif beceriler"] },
-    { slug: "isitme-yetersizlik-destegi", title: "Isitme Yetersizlik Destegi", shortDescription: "Isitme engelli bireylere yonelik isitsel egitim ve iletisim destegi.", targetGroup: "2-18 Yas", features: ["Isitsel egitim", "Dudak okuma", "Isaret dili"] },
+    { slug: "zihinsel-yetersizlik-destegi", title: "Zihinsel Yetersizlik Desteği", shortDescription: "Zihinsel gelişim geriliği olan bireylere yönelik bireysel eğitim programları.", targetGroup: "3-18 Yaş", features: ["Bireysel eğitim", "Günlük yaşam becerileri", "Sosyal uyum"] },
+    { slug: "otizm-spektrum-bozuklugu-destegi", title: "Otizm Spektrum Bozukluğu Desteği", shortDescription: "Otizm spektrum bozukluğu teşhisi almış bireylere özel yapılandırılmış eğitim.", targetGroup: "2-18 Yaş", features: ["ABA terapi", "Sosyal beceri", "İletişim desteği"] },
+    { slug: "ogrenme-guclugu-destegi", title: "Öğrenme Güçlüğü Desteği", shortDescription: "Disleksi, diskalkuli ve diğer öğrenme güçlüklerinde akademik destek.", targetGroup: "6-18 Yaş", features: ["Okuma-yazma", "Matematik desteği", "Dikkat çalışmaları"] },
+    { slug: "dil-konusma-bozukluklari-destegi", title: "Dil ve Konuşma Bozuklukları Desteği", shortDescription: "Dil gecikmesi, artikülasyon ve akıcılık bozukluklarında uzman terapi.", targetGroup: "2-18 Yaş", features: ["Dil terapisi", "Artikülasyon", "Pragmatik dil"] },
+    { slug: "bedensel-yetersizlik-destegi", title: "Bedensel Yetersizlik Desteği", shortDescription: "Bedensel engelli bireylere yönelik fiziksel rehabilitasyon ve eğitim.", targetGroup: "3-18 Yaş", features: ["Fizyoterapi", "Motor gelişim", "Adaptif beceriler"] },
+    { slug: "isitme-yetersizlik-destegi", title: "İşitme Yetersizlik Desteği", shortDescription: "İşitme engelli bireylere yönelik işitsel eğitim ve iletişim desteği.", targetGroup: "2-18 Yaş", features: ["İşitsel eğitim", "Dudak okuma", "İşaret dili"] },
   ];
 
   return (
     <>
       <PageHeader
-        title="Egitim Programlari"
-        description="Bireysel ihtiyaclara gore hazirlanan destek egitim programlarimiz"
+        title="Eğitim Programları"
+        description="Bireysel ihtiyaçlara göre hazırlanan destek eğitim programlarımız"
         breadcrumbs={[{ label: "Programlar" }]}
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
@@ -56,7 +56,7 @@ export default async function ProgramlarPage() {
                 )}
                 <Button asChild variant="outline" size="sm" className="w-fit">
                   <Link href={`/programlar/${program.slug}`}>
-                    Detayli Bilgi
+                    Detaylı Bilgi
                     <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                   </Link>
                 </Button>

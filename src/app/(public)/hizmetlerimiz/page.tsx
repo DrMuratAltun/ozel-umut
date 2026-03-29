@@ -7,7 +7,7 @@ import { ArrowRight, BookOpen, MessageCircle, Activity, Brain, Hand, Ear } from 
 
 export const metadata: Metadata = {
   title: "Hizmetlerimiz",
-  description: "Umut Ozel Egitim ve Rehabilitasyon Merkezi hizmetleri: ozel egitim, dil ve konusma terapisi, fizyoterapi, psikolojik danismanlik.",
+  description: "Umut Özel Eğitim ve Rehabilitasyon Merkezi hizmetleri: özel eğitim, dil ve konuşma terapisi, fizyoterapi, psikolojik danışmanlık.",
 };
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -17,38 +17,38 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
 const SERVICES = [
   {
     slug: "ozel-egitim",
-    title: "Ozel Egitim",
-    shortDescription: "Bireysel degerlendirme sonuclarina gore hazirlanan ozel egitim programlari ile ogrencilerimizin akademik ve sosyal gelisimlerini destekliyoruz.",
+    title: "Özel Eğitim",
+    shortDescription: "Bireysel değerlendirme sonuçlarına göre hazırlanan özel eğitim programları ile öğrencilerimizin akademik ve sosyal gelişimlerini destekliyoruz.",
     icon: "BookOpen",
   },
   {
     slug: "dil-ve-konusma-terapisi",
-    title: "Dil ve Konusma Terapisi",
-    shortDescription: "Dil gecikmesi, artikulasyon bozukluklari, kekemelik ve iletisim gucluklerinde uzman terapistlerimizle destek sagliyoruz.",
+    title: "Dil ve Konuşma Terapisi",
+    shortDescription: "Dil gecikmesi, artikülasyon bozuklukları, kekemelik ve iletişim güçlüklerinde uzman terapistlerimizle destek sağlıyoruz.",
     icon: "MessageCircle",
   },
   {
     slug: "fizyoterapi",
     title: "Fizyoterapi",
-    shortDescription: "Motor gelisim geriligi, serebral palsi ve bedensel yetersizliklerde fiziksel rehabilitasyon programlari uyguluyoruz.",
+    shortDescription: "Motor gelişim geriliği, serebral palsi ve bedensel yetersizliklerde fiziksel rehabilitasyon programları uyguluyoruz.",
     icon: "Activity",
   },
   {
     slug: "psikolojik-danismanlik",
-    title: "Psikolojik Danismanlik",
-    shortDescription: "Cocuk ve aile odakli psikolojik degerlendirme, terapi ve danismanlik hizmetleri sunuyoruz.",
+    title: "Psikolojik Danışmanlık",
+    shortDescription: "Çocuk ve aile odaklı psikolojik değerlendirme, terapi ve danışmanlık hizmetleri sunuyoruz.",
     icon: "Brain",
   },
   {
     slug: "ergoterapi",
     title: "Ergoterapi",
-    shortDescription: "Gunluk yasam aktiviteleri, ince motor beceriler ve duyusal butunleme terapisi ile bagimsizlik kazandiriyoruz.",
+    shortDescription: "Günlük yaşam aktiviteleri, ince motor beceriler ve duyusal bütünleme terapisi ile bağımsızlık kazandırıyoruz.",
     icon: "Hand",
   },
   {
     slug: "odyoloji",
     title: "Odyoloji",
-    shortDescription: "Isitme degerlendirmesi, isitme cihazi uygulamalari ve isitme engelli bireylere yonelik destek programlari sunuyoruz.",
+    shortDescription: "İşitme değerlendirmesi, işitme cihazı uygulamaları ve işitme engelli bireylere yönelik destek programları sunuyoruz.",
     icon: "Ear",
   },
 ];
@@ -58,7 +58,7 @@ export default function HizmetlerimizPage() {
     <>
       <PageHeader
         title="Hizmetlerimiz"
-        description="Uzman kadromuzla sunduğumuz kapsamli ozel egitim ve rehabilitasyon hizmetlerimiz"
+        description="Uzman kadromuzla sunduğumuz kapsamlı özel eğitim ve rehabilitasyon hizmetlerimiz"
         breadcrumbs={[{ label: "Hizmetlerimiz" }]}
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
@@ -75,7 +75,7 @@ export default function HizmetlerimizPage() {
                   <p className="text-sm text-muted-foreground flex-1 mb-4">{service.shortDescription}</p>
                   <Button asChild variant="outline" size="sm" className="w-fit">
                     <Link href={`/hizmetlerimiz/${service.slug}`}>
-                      Detayli Bilgi
+                      Detaylı Bilgi
                       <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                     </Link>
                   </Button>

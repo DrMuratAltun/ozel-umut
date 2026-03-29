@@ -6,8 +6,8 @@ interface EmptyStateProps {
 }
 
 export function EmptyState({
-  title = "Icerik bulunamadi",
-  description = "Henuz burada gosterilecek bir icerik yok.",
+  title = "İçerik bulunamadı",
+  description = "Henüz burada gösterilecek bir içerik yok.",
 }: EmptyStateProps) {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">

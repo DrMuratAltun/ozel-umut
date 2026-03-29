@@ -11,13 +11,13 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Projeler",
-  description: "Umut Ozel Egitim ve Rehabilitasyon Merkezi projeleri.",
+  description: "Umut Özel Eğitim ve Rehabilitasyon Merkezi projeleri.",
 };
 
 const STATUS_MAP: Record<string, { label: string; variant: "default" | "secondary" | "outline" }> = {
   active: { label: "Devam Ediyor", variant: "default" },
-  completed: { label: "Tamamlandi", variant: "secondary" },
-  planned: { label: "Planlaniyor", variant: "outline" },
+  completed: { label: "Tamamlandı", variant: "secondary" },
+  planned: { label: "Planlanıyor", variant: "outline" },
 };
 
 export default async function ProjelerPage() {
@@ -30,14 +30,14 @@ export default async function ProjelerPage() {
     <>
       <PageHeader
         title="Projelerimiz"
-        description="Kurumumuzun yuruttuğu projeler ve etkinlikler"
+        description="Kurumumuzun yürüttüğü projeler ve etkinlikler"
         breadcrumbs={[{ label: "Projeler" }]}
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
         {projects.length === 0 ? (
           <EmptyState
-            title="Henuz proje yok"
-            description="Projelerimiz yakindir burada yayinlanacak."
+            title="Henüz proje yok"
+            description="Projelerimiz yakındır burada yayınlanacak."
           />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

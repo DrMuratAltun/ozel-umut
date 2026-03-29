@@ -34,7 +34,7 @@ export default function AdminAyarlarPage() {
       await updateSiteSettings(settings);
       toast.success("Ayarlar kaydedildi");
     } catch {
-      toast.error("Kaydetme basarisiz");
+      toast.error("Kaydetme başarısız");
     } finally {
       setLoading(false);
     }
@@ -42,22 +42,22 @@ export default function AdminAyarlarPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-foreground mb-6">Site Ayarlari</h1>
+      <h1 className="text-2xl font-bold text-foreground mb-6">Site Ayarları</h1>
       <form onSubmit={handleSubmit}>
         <div className="space-y-6">
           <Card>
             <CardContent className="p-6">
-              <h2 className="text-lg font-semibold text-foreground mb-4">Iletisim Bilgileri</h2>
+              <h2 className="text-lg font-semibold text-foreground mb-4">İletişim Bilgileri</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div><Label htmlFor="phone">Telefon</Label><Input id="phone" name="phone" defaultValue="0242 643 01 45" className="mt-1.5" /></div>
                 <div><Label htmlFor="email">E-posta</Label><Input id="email" name="email" defaultValue="info@ozelegitimumut.com" className="mt-1.5" /></div>
                 <div><Label htmlFor="address">Adres</Label><Input id="address" name="address" defaultValue="Korkuteli, Antalya" className="mt-1.5" /></div>
-                <div><Label htmlFor="whatsapp">WhatsApp Numarasi</Label><Input id="whatsapp" name="whatsapp" defaultValue="902426430145" className="mt-1.5" /></div>
+                <div><Label htmlFor="whatsapp">WhatsApp Numarası</Label><Input id="whatsapp" name="whatsapp" defaultValue="902426430145" className="mt-1.5" /></div>
               </div>
               <Separator className="my-4" />
-              <h3 className="text-sm font-medium text-foreground mb-3">Calisma Saatleri</h3>
+              <h3 className="text-sm font-medium text-foreground mb-3">Çalışma Saatleri</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div><Label htmlFor="weekday_hours">Hafta Ici</Label><Input id="weekday_hours" name="weekday_hours" defaultValue="08:30 - 17:30" className="mt-1.5" /></div>
+                <div><Label htmlFor="weekday_hours">Hafta İçi</Label><Input id="weekday_hours" name="weekday_hours" defaultValue="08:30 - 17:30" className="mt-1.5" /></div>
                 <div><Label htmlFor="saturday_hours">Cumartesi</Label><Input id="saturday_hours" name="saturday_hours" defaultValue="09:00 - 14:00" className="mt-1.5" /></div>
               </div>
             </CardContent>
@@ -76,7 +76,7 @@ export default function AdminAyarlarPage() {
 
           <Button type="submit" disabled={loading} size="lg">
             {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
-            Ayarlari Kaydet
+            Ayarları Kaydet
           </Button>
         </div>
       </form>

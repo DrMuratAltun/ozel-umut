@@ -24,12 +24,12 @@ export default function GirisPage() {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
 
     if (error) {
-      toast.error("Giris basarisiz. E-posta veya sifre hatali.");
+      toast.error("Giriş başarısız. E-posta veya şifre hatalı.");
       setLoading(false);
       return;
     }
 
-    toast.success("Basariyla giris yapildi!");
+    toast.success("Başarıyla giriş yapıldı!");
     router.push("/admin");
     router.refresh();
   }
@@ -42,8 +42,8 @@ export default function GirisPage() {
             <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-primary-foreground font-bold text-2xl mx-auto mb-4">
               U
             </div>
-            <h1 className="text-2xl font-bold text-foreground">Yonetim Paneli</h1>
-            <p className="text-sm text-muted-foreground mt-1">Giris yapmak icin bilgilerinizi girin</p>
+            <h1 className="text-2xl font-bold text-foreground">Yönetim Paneli</h1>
+            <p className="text-sm text-muted-foreground mt-1">Giriş yapmak için bilgilerinizi girin</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
@@ -60,7 +60,7 @@ export default function GirisPage() {
               />
             </div>
             <div>
-              <Label htmlFor="password">Sifre</Label>
+              <Label htmlFor="password">Şifre</Label>
               <Input
                 id="password"
                 type="password"
@@ -77,7 +77,7 @@ export default function GirisPage() {
               ) : (
                 <LogIn className="mr-2 h-4 w-4" />
               )}
-              Giris Yap
+              Giriş Yap
             </Button>
           </form>
         </CardContent>

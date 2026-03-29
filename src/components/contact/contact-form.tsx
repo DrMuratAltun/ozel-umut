@@ -33,12 +33,12 @@ export function ContactForm() {
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) throw new Error("Gonderim basarisiz");
+      if (!res.ok) throw new Error("Gönderim başarısız");
 
-      toast.success("Mesajiniz basariyla gonderildi! En kisa surede size donecegiz.");
+      toast.success("Mesajınız başarıyla gönderildi! En kısa sürede size döneceğiz.");
       reset();
     } catch {
-      toast.error("Mesaj gonderilemedi. Lutfen tekrar deneyin.");
+      toast.error("Mesaj gönderilemedi. Lütfen tekrar deneyin.");
     } finally {
       setLoading(false);
     }
@@ -47,14 +47,14 @@ export function ContactForm() {
   return (
     <Card>
       <CardContent className="p-6">
-        <h2 className="text-xl font-semibold text-foreground mb-6">Bize Yazin</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-6">Bize Yazın</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="name">Adiniz Soyadiniz *</Label>
+              <Label htmlFor="name">Adınız Soyadınız *</Label>
               <Input
                 id="name"
-                placeholder="Adiniz Soyadiniz"
+                placeholder="Adınız Soyadınız"
                 {...register("name")}
                 className="mt-1.5"
               />
@@ -98,10 +98,10 @@ export function ContactForm() {
             </div>
           </div>
           <div>
-            <Label htmlFor="message">Mesajiniz *</Label>
+            <Label htmlFor="message">Mesajınız *</Label>
             <Textarea
               id="message"
-              placeholder="Mesajinizi buraya yaziniz..."
+              placeholder="Mesajınızı buraya yazınız..."
               rows={5}
               {...register("message")}
               className="mt-1.5"
@@ -116,7 +116,7 @@ export function ContactForm() {
             ) : (
               <Send className="mr-2 h-4 w-4" />
             )}
-            Mesaj Gonder
+            Mesaj Gönder
           </Button>
         </form>
       </CardContent>

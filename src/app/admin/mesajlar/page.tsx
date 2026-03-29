@@ -16,17 +16,17 @@ export default async function AdminMesajlarPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-foreground mb-6">Iletisim Mesajlari</h1>
+      <h1 className="text-2xl font-bold text-foreground mb-6">İletişim Mesajları</h1>
       <Card>
         <CardContent className="p-0">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Gonderen</TableHead>
+                <TableHead>Gönderen</TableHead>
                 <TableHead>Konu</TableHead>
                 <TableHead>Tarih</TableHead>
                 <TableHead>Durum</TableHead>
-                <TableHead className="text-right">Islemler</TableHead>
+                <TableHead className="text-right">İşlemler</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -62,7 +62,7 @@ export default async function AdminMesajlarPage() {
               ))}
               {messages.length === 0 && (
                 <TableRow>
-                  <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">Henuz mesaj yok.</TableCell>
+                  <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">Henüz mesaj yok.</TableCell>
                 </TableRow>
               )}
             </TableBody>
