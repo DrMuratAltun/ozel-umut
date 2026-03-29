@@ -1,10 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Heart, Shield, Users } from "lucide-react";
 
 export function AboutPreview() {
   return (
-    <section className="py-16 md:py-20 bg-muted/50">
+    <section className="py-16 md:py-20 bg-brand-blue-light/30">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -12,7 +13,7 @@ export function AboutPreview() {
               Hakkımızda
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Umut ile Başlar, Başarıyla Devam Eder
+              Umut ile Başlar, <span className="text-accent">Başarıyla</span> Devam Eder
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Umut Özel Eğitim ve Rehabilitasyon Merkezi olarak, özel gereksinimli bireylerin
@@ -22,7 +23,7 @@ export function AboutPreview() {
             </p>
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
                   <Heart className="h-5 w-5" />
                 </div>
                 <div>
@@ -40,7 +41,7 @@ export function AboutPreview() {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-yellow/20 text-foreground">
                   <Users className="h-5 w-5" />
                 </div>
                 <div>
@@ -57,15 +58,34 @@ export function AboutPreview() {
             </Button>
           </div>
           <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/20 via-teal-light to-amber-light flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="text-6xl font-bold text-primary">U</div>
-                <p className="mt-2 text-lg font-medium text-foreground">Umut Özel Eğitim</p>
-                <p className="text-sm text-muted-foreground">Korkuteli, Antalya</p>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/hero/special-ed-1.jpg"
+                  alt="Özel eğitim öğrencileri"
+                  width={400}
+                  height={300}
+                  className="object-cover w-full h-[200px] md:h-[240px]"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg mt-8">
+                <Image
+                  src="/images/hero/child-happy.jpg"
+                  alt="Mutlu çocuklar"
+                  width={400}
+                  height={300}
+                  className="object-cover w-full h-[200px] md:h-[240px]"
+                />
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-xl bg-amber/20 -z-10" />
-            <div className="absolute -top-4 -left-4 h-16 w-16 rounded-lg bg-primary/10 -z-10" />
+            {/* Yıl badge */}
+            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-accent text-white rounded-2xl px-6 py-4 shadow-xl text-center">
+              <p className="text-3xl font-bold">20+</p>
+              <p className="text-sm">Yıllık Deneyim</p>
+            </div>
+            {/* Dekoratif elemanlar */}
+            <div className="absolute -top-3 -right-3 h-20 w-20 rounded-full bg-brand-yellow/20 -z-10" />
+            <div className="absolute -bottom-3 -left-3 h-16 w-16 rounded-xl bg-primary/10 -z-10" />
           </div>
         </div>
       </div>
