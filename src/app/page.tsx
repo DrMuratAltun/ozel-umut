@@ -22,6 +22,7 @@ export default async function HomePage() {
       slug: true,
       excerpt: true,
       category: true,
+      coverImageUrl: true,
       publishedAt: true,
     },
     take: 10,

@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Newspaper, Calendar, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +13,7 @@ interface NewsItem {
   slug: string;
   excerpt: string | null;
   category: string | null;
+  coverImageUrl: string | null;
   publishedAt: string | null;
 }
 
@@ -33,7 +35,7 @@ export function NewsBanner({ items }: NewsBannerProps) {
 
   useEffect(() => {
     if (isHovered || items.length <= 1) return;
-    const timer = setInterval(next, 4000);
+    const timer = setInterval(next, 5000);
     return () => clearInterval(timer);
   }, [next, isHovered, items.length]);
 
@@ -43,103 +45,103 @@ export function NewsBanner({ items }: NewsBannerProps) {
 
   return (
     <section
-      className="bg-gradient-to-r from-accent via-accent to-primary text-white shadow-lg"
+      className="relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="container mx-auto px-4 py-4 md:py-5">
-        <div className="flex items-center gap-4">
-          {/* Label */}
-          <div className="hidden sm:flex items-center gap-2.5 shrink-0">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-              <Newspaper className="h-5 w-5" />
-            </div>
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest opacity-80">Haberler</span>
-              <div className="text-[10px] opacity-60">{current + 1}/{items.length}</div>
-            </div>
+      {/* Main slider */}
+      <div className="relative aspect-[21/9] md:aspect-[3/1] lg:aspect-[4/1] w-full overflow-hidden bg-foreground">
+        {/* Background image */}
+        {item.coverImageUrl ? (
+          <Image
+            src={item.coverImageUrl}
+            alt={item.title}
+            fill
+            className="object-cover transition-opacity duration-700"
+            sizes="100vw"
+            priority
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent" />
+        )}
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+
+        {/* Content overlay */}
+        <div className="absolute inset-0 flex items-end">
+          <div className="container mx-auto px-4 pb-6 md:pb-8">
+            <Link href={`/blog/${item.slug}`} className="group block">
+              <div className="flex items-center gap-2 mb-2">
+                {item.category && (
+                  <Badge className="bg-accent text-white border-0 text-xs">
+                    {item.category}
+                  </Badge>
+                )}
+                {item.publishedAt && (
+                  <span className="flex items-center gap-1 text-xs text-white/70">
+                    <Calendar className="h-3 w-3" />
+                    {new Date(item.publishedAt).toLocaleDateString("tr-TR", {
+                      year: "numeric", month: "long", day: "numeric"
+                    })}
+                  </span>
+                )}
+              </div>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight group-hover:underline decoration-2 underline-offset-4 max-w-3xl">
+                {item.title}
+              </h2>
+              {item.excerpt && (
+                <p className="text-sm md:text-base text-white/80 mt-2 max-w-2xl line-clamp-2 hidden sm:block">
+                  {item.excerpt}
+                </p>
+              )}
+            </Link>
           </div>
+        </div>
 
-          {/* Divider */}
-          <div className="hidden sm:block h-10 w-px bg-white/20" />
-
-          {/* Navigation left */}
-          {items.length > 1 && (
+        {/* Navigation arrows */}
+        {items.length > 1 && (
+          <>
             <button
               onClick={prev}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              className="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors backdrop-blur-sm"
               aria-label="Önceki haber"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-6 w-6" />
             </button>
-          )}
-
-          {/* Content */}
-          <Link
-            href={`/blog/${item.slug}`}
-            className="flex-1 min-w-0 group"
-          >
-            <div className="flex items-center gap-2 mb-1">
-              {item.category && (
-                <Badge className="bg-white/20 text-white border-0 text-[10px] px-2 py-0 h-5">
-                  {item.category}
-                </Badge>
-              )}
-              {item.publishedAt && (
-                <span className="flex items-center gap-1 text-xs opacity-70">
-                  <Calendar className="h-3 w-3" />
-                  {new Date(item.publishedAt).toLocaleDateString("tr-TR")}
-                </span>
-              )}
-            </div>
-            <p className="text-base md:text-lg font-semibold truncate group-hover:underline">
-              {item.title}
-            </p>
-            {item.excerpt && (
-              <p className="text-sm opacity-75 truncate hidden md:block mt-0.5">
-                {item.excerpt}
-              </p>
-            )}
-          </Link>
-
-          {/* Read more */}
-          <Link
-            href={`/blog/${item.slug}`}
-            className="hidden lg:flex items-center gap-1.5 shrink-0 text-sm font-medium bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-colors"
-          >
-            Oku
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-
-          {/* Navigation right */}
-          {items.length > 1 && (
             <button
               onClick={next}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors backdrop-blur-sm"
               aria-label="Sonraki haber"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-6 w-6" />
             </button>
-          )}
+          </>
+        )}
+      </div>
 
-          {/* Dots - mobile */}
-          {items.length > 1 && (
-            <div className="flex sm:hidden items-center gap-1">
+      {/* Page numbers */}
+      {items.length > 1 && (
+        <div className="bg-foreground">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center">
               {items.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
                   className={cn(
-                    "h-2 rounded-full transition-all",
-                    i === current ? "w-5 bg-white" : "w-2 bg-white/40"
+                    "h-8 min-w-[2rem] px-2 text-sm font-bold transition-colors border-t-2",
+                    i === current
+                      ? "bg-accent text-white border-accent"
+                      : "text-white/50 hover:text-white/80 hover:bg-white/5 border-transparent"
                   )}
-                  aria-label={`Haber ${i + 1}`}
-                />
+                >
+                  {i + 1}
+                </button>
               ))}
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
