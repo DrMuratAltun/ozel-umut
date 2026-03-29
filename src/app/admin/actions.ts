@@ -59,6 +59,16 @@ export async function deleteItem(
   }
 }
 
+// Banner toggle
+export async function toggleBanner(postId: string, showInBanner: boolean) {
+  await prisma.blogPost.update({
+    where: { id: postId },
+    data: { showInBanner },
+  });
+  revalidatePath("/admin/blog");
+  revalidatePath("/");
+}
+
 // Blog CRUD
 export async function createBlogPost(data: {
   title: string; content: string; excerpt?: string; category?: string;

@@ -109,6 +109,7 @@ model BlogPost {
   category        String?
   tags            String[]  @default([])
   status          String    @default("draft")
+  showInBanner    Boolean   @default(false) @map("show_in_banner")
   publishedAt     DateTime? @map("published_at")
   metaTitle       String?   @map("meta_title")
   metaDescription String?   @map("meta_description")

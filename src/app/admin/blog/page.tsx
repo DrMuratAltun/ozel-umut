@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Plus, Edit, Calendar } from "lucide-react";
 import { DeleteButton } from "@/components/admin/delete-button";
+import { BannerToggle } from "@/components/admin/banner-toggle";
 
 export const dynamic = "force-dynamic";
 
@@ -35,6 +36,7 @@ export default async function AdminBlogPage() {
                 <TableHead>Başlık</TableHead>
                 <TableHead>Kategori</TableHead>
                 <TableHead>Durum</TableHead>
+                <TableHead>Banner</TableHead>
                 <TableHead>Tarih</TableHead>
                 <TableHead className="text-right">İşlemler</TableHead>
               </TableRow>
@@ -50,6 +52,9 @@ export default async function AdminBlogPage() {
                     <Badge variant={post.status === "published" ? "default" : "outline"}>
                       {post.status === "published" ? "Yayında" : "Taslak"}
                     </Badge>
+                  </TableCell>
+                  <TableCell>
+                    <BannerToggle postId={post.id} initialValue={post.showInBanner} />
                   </TableCell>
                   <TableCell className="text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">
@@ -71,7 +76,7 @@ export default async function AdminBlogPage() {
               ))}
               {posts.length === 0 && (
                 <TableRow>
-                  <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
+                  <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
                     Henüz blog yazısı yok.
                   </TableCell>
                 </TableRow>
