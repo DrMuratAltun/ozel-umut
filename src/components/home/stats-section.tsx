@@ -3,7 +3,7 @@ import { GraduationCap, Calendar, Users, BookOpen } from "lucide-react";
 const STATS = [
   { label: "Yıllık Deneyim", value: "20+", icon: Calendar },
   { label: "Mutlu Öğrenci", value: "500+", icon: GraduationCap },
-  { label: "Uzman Kadro", value: "15+", icon: Users },
+  { label: "Uzman Kadro", value: "29", icon: Users },
   { label: "Eğitim Programı", value: "6", icon: BookOpen },
 ];
 
