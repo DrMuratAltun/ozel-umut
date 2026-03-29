@@ -42,9 +42,8 @@ export function HeroSection({ newsItems = [] }: HeroSectionProps) {
               Korkuteli, Antalya &bull; 2005&apos;ten beri hizmetinizde
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Her Çocuğun{" "}
-              <span className="text-brand-yellow">Potansiyeli</span>{" "}
-              Değerlidir
+              Her Çocuk{" "}
+              <span className="text-brand-yellow">Özeldir!</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/90 max-w-xl leading-relaxed">
               Uzman kadromuz ve bireysel eğitim programlarımızla, çocuklarınızın gelişimini
